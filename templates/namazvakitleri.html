@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}Dualar ve Zikirler - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+        <style>
+
+            body{
+                margin:0;
+                padding:0;
+                min-height:150vh;
+                background-color:rgb(203, 203, 203);
+             }
+
+
+    
+
+
+ 
+          
+            h1 {
+        color: #2c251e;
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+            .namazvakti{
+                
+              position: relative;
+    height: auto;
+    min-height: 590px;
+    width: 80%;
+    max-width: 900px;
+    margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
+    text-align: left;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
+        }
+            .namazvakti h2{
+                text-align:left;
+                font-size:20px;
+                color:black;
+                background-color:#b8ad9d;
+                border-radius:5px;
+                width:fit-content;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                margin-left:15px;
+                margin-top:30px;
+            }
+
+             .namazvakti p{
+                margin-left:5px;
+                text-align:left;
+                font-size:17px;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+    
+   
+   
+   
+
+        /* Tablo Genel Ayarları */
+.namaz-tablo {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: 'Gill Sans', sans-serif;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.namaz-tablo thead tr {
+    background-color: #016e58; /* Yeşil tonlarında şık bir başlık */
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.namaz-tablo th, .namaz-tablo td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Satırların zebra deseni (biri açık biri koyu) */
+.namaz-tablo tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+}
+
+.namaz-tablo tbody tr:last-of-type {
+    border-bottom: 2px solid #016e58;
+}
+
+/* Fare ile üzerine gelince satırın parlaması */
+.namaz-tablo tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: default;
+}
+
+h2 {
+    color: #016e58;
+    margin-top: 30px;
+    font-family: 'Gill Sans', sans-serif;
+}
+        
+
+        </style>
+{% endblock %}
+
+{% block content %}
+</head>
+    <body>
+    
+
+
+ 
+
+
+    <div class="namazvakti">
+        
+      <h1>- Namaz Vakitleri -</h1>
+
+
+<div style="margin: 20px auto; text-align: center;">
+        <form action="/namazvakitleri" method="get" style="display: flex; justify-content: center; gap: 10px;">
+            <input type="text" name="sehir" placeholder="Şehir ismi giriniz (Örn: Ankara)" 
+                   style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 250px; font-family: sans-serif;">
+            <button type="submit" 
+                    style="padding: 10px 20px; background-color: #016e58; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                Vakitleri Getir
+            </button>
+        </form>
+    </div>
+      <div style="margin-top: 30px;">
+        <h2 style="color: #1c1c1c; font-family: 'Gill Sans', sans-serif; margin-bottom: 5px;">
+            {{ sehir }} Namaz Vakitleri
+        </h2>
+        <p style="text-align: center; color: #666; font-size: 16px; font-style: italic; margin-bottom: 20px;">
+            {{ tarih }}
+        </p>
+    </div>
+
+    {% if vakitler %}
+    <table class="namaz-tablo">
+        <thead>
+            <tr>
+                <th>Vakit</th>
+                <th>Saat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>İmsak</strong></td>
+                <td>{{ vakitler.Fajr }}</td>
+            </tr>
+            <tr>
+                <td><strong>Güneş</strong></td>
+                <td>{{ vakitler.Sunrise }}</td>
+            </tr>
+            <tr>
+                <td><strong>Öğle</strong></td>
+                <td>{{ vakitler.Dhuhr }}</td>
+            </tr>
+            <tr>
+                <td><strong>İkindi</strong></td>
+                <td>{{ vakitler.Asr }}</td>
+            </tr>
+            <tr>
+                <td><strong>Akşam</strong></td>
+                <td>{{ vakitler.Maghrib }}</td>
+            </tr>
+            <tr>
+                <td><strong>Yatsı</strong></td>
+                <td>{{ vakitler.Isha }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% else %}
+    <div style="padding: 20px;">
+        <p style="color: #e74c3c; text-align: center;">Vakit bilgileri şu an yüklenemedi. Lütfen internet bağlantınızı kontrol edin.</p>
+    </div>
+    {% endif %}
+
+    <p style="text-align: center; font-size: 13px; color: #999; margin-top: 20px; padding: 10px;">
+        * Vakitler Aladhan API aracılığıyla {{ sehir }} için günlük güncellenmektedir.
+    </p>
+    
+    
+
+    </div>
+
+    </body>
+</html>
+{% endblock %}
+

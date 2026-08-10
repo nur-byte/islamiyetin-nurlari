@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+
+{% block title %}Hicri Aylar - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        background-color: rgb(203, 203, 203);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .orta {
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        max-width: 900px;
+        margin: 220px auto 60px auto;
+        text-align: left;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        padding: 35px 40px;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    .orta h1 {
+        color: #2c251e;
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .orta h2 {
+        text-align: left;
+        font-size: 1.3rem;
+        color: #ffffff;
+        background-color: #614d37;
+        padding: 8px 18px;
+        border-radius: 6px;
+        width: fit-content;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        scroll-margin-top: 130px; 
+    }
+
+    .orta p {
+        font-size: 1.05rem;
+        color: #333333;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.7;
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+    /* Tarih Paneli Düzenlemesi */
+      .tarih-paneli {
+    background: linear-gradient(135deg, #fefefe 0%, #f7f4f0 100%);
+    border-top: 4px solid #614d37;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 20px auto 30px 0; /* Sol tarafa hizalandı */
+    max-width: 420px; /* Devasa genişlik yerine ideal küçük kart boyutu */
+    width: 100%; /* Mobil uyum için maks genişliği aşmaz */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+.tarih-baslik {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #614d37;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Başlık sola çekildi */
+    gap: 8px;
+}
+
+/* Tarihleri dikeyde şık bir liste haline getiriyoruz */
+.tarih-icerik-kapsayici {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tarih-satir {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.tarih-etiket {
+    font-weight: 600;
+    color: #555555;
+    font-size: 0.9rem;
+}
+
+.tarih-deger {
+    font-weight: bold;
+    color: #2c251e;
+    font-size: 0.95rem;
+    background-color: #f7f4f0;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+    /* Hızlı Erişim Menüsü */
+    .sure-linkleri-kapsayici {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    .sure-linkleri-kapsayici a {
+        background-color: #f7f4f0;
+        color: #4a3f35;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border: 1px solid #e6dec3;
+        transition: all 0.25s ease;
+    }
+
+    .sure-linkleri-kapsayici a:hover {
+        background-color: #614d37;
+        color: #ffffff;
+        border-color: #614d37;
+        transform: translateY(-2px);
+    }
+
+    /* Liste Düzeni */
+    .ay-detaylar ul {
+        margin: 10px 0 20px 20px;
+        padding: 0;
+    }
+
+    .ay-detaylar li {
+        font-size: 1rem;
+        color: #333333;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.6;
+        margin-bottom: 8px;
+    }
+
+    .arapca-islem {
+        font-weight: normal;
+        margin-left: 8px;
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+        .orta {
+            width: 92%;
+            margin-top: 130px;
+            padding: 20px 15px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="orta">
+
+    <h1>- Hicr-i Aylar -</h1>
+
+    <!-- Bugünü Gösteren Tarih Paneli -->
+    <div class="tarih-paneli">
+        <div class="tarih-baslik">
+            <span>📅</span> BUGÜNÜN TARİHİ
+        </div>
+        <div class="tarih-satir">
+            <span class="tarih-etiket">🌙 Hicri Takvim:</span>
+            <span class="tarih-deger">{{ hijri_date }}</span>
+        </div>
+        <div class="tarih-satir">
+            <span class="tarih-etiket">☀️ Miladi Takvim:</span>
+            <span class="tarih-deger">{{ gregorian_date }}</span>
+        </div>
+    </div>
+
+    <!-- Hızlı Erişim Butonları -->
+    <div class="sure-hizli-menu">
+        <div class="sure-linkleri-kapsayici">
+            <a href="#muharrem">Muharrem</a>
+            <a href="#safer">Safer</a>
+            <a href="#rebiulevvel">Rebiülevvel</a>
+            <a href="#rebiulahir">Rebiülahir</a>
+            <a href="#cemaziyelevvel">Cemaziyelevvel</a>
+            <a href="#cemaziyelahir">Cemaziyelahir</a>
+            <a href="#recep">Recep</a>
+            <a href="#saban">Şaban</a>
+            <a href="#ramazan">Ramazan</a>
+            <a href="#sevval">Şevval</a>
+            <a href="#zilkade">Zilkade</a>
+            <a href="#zilhicce">Zilhicce</a>
+        </div>
+    </div>
+
+    <p style="text-align: center; color: #614d37; font-weight: 600; margin: 20px 0;">
+        Hicri takvim, Peygamber Efendimiz Hz. Muhammed'in (s.a.v.) Mekke'den Medine'ye hicretini başlangıç kabul eden ay takvimidir.
+    </p>
+
+    <hr style="border: none; border-bottom: 1px solid #eee; margin: 25px 0;">
+
+   <h2 id="muharrem">MUHARREM <span class="arapca-islem">محرّم</span></h2>
+    <p>
+        Hicri takvimin ilk ayı ve ilahi bereketin yeryüzüne yağdığı mukaddes bir başlangıçtır. Kelime anlamı "hürmet edilen, kutsal sayılan" demektir. İslam öncesinde dahi savaşmanın kesinlikle yasak olduğu dört "Haram Ay"dan biri olan Muharrem; şükrün, hüzün ile tefekkürün aynı potada eridiği müstesna bir zaman dilimidir.
+    </p>
+    <div class="ay-detaylar">
+        <ul>
+            <li><strong>Hicri Yılbaşı:</strong> Müslümanların özgürlüğe, medeniyete ve hakikate yürüyüşü olan Kutlu Hicret’in esas alındığı yeni yılın ilk günüdür.</li>
+            <li><strong>Aşure Günü (10 Muharrem):</strong> Hz. Nuh’un gemisinin tufandan kurtulduğu, Hz. Musa’nın Kızıldeniz’i yararak hürriyete kavuştuğu ilahi mucizelerin tecelli ettiği bereket günüdür.</li>
+            <li><strong>Kerbela Hüznü:</strong> Efendimizin (s.a.v.) "Dünyanın iki güzel kokulu çiçeği" dediği Hz. Hüseyin ve aziz sahabelerin şehit edildiği, İslam tarihinin en derin sızısıdır.</li>
+        </ul>
+    </div>
+
+    <h2 id="safer">SAFER <span class="arapca-islem">صفر</span></h2>
+    <p>
+        Hicri takvimin ikinci ayıdır. Cahiliye döneminde yanlış bir algıyla "uğursuzluk ayı" olarak nitelendirilen bu zaman dilimini Sevgili Peygamberimiz (s.a.v.), <em>"İslam'da uğursuzluk yoktur"</em> buyurarak tamamen yıkmış; Safer ayını dua, hayır ve ibadet ayı olarak ilan etmiştir. Bu ay, geçmişin Hurafelerinden sıyrılıp Yüce Allah’a sığınma ve kaza namazlarıyla ruhen arınma zamanıdır.
+    </p>
+
+    <h2 id="rebiulevvel">REBİÜLEVVEL <span class="arapca-islem">ربيع الأوّل</span></h2>
+    <p>
+        "İlk bahar" anlamına gelen Rebiülevvel, insanlık aleminin karanlıktan aydınlığa çıktığı ve manevi baharın yeryüzüne indiği mübarek bir aydır. Kalplerin salavatlarla coştuğu, Peygamber sevgisinin evlerimizi ve gönüllerimizi yeniden kuşattığı bir neşe dönemidir.
+    </p>
+    <div class="ay-detaylar">
+        <ul>
+            <li><strong>Mevlid Kandili (12 Rebiülevvel):</strong> Âlemlere rahmet olarak gönderilen Sevgili Peygamberimiz Hz. Muhammed Mustafa (s.a.v.), bu gecede dünyayı şereflendirmiştir. Müslümanlar bu geceyi dualarla ve Efendimizin güzel ahlakını tefekkür ederek ihya ederler.</li>
+        </ul>
+    </div>
+
+    <h2 id="rebiulahir">REBİÜLAHİR <span class="arapca-islem">ربيع الآخر</span></h2>
+    <p>
+        Hicri takvimin dördüncü ayıdır. Rebiülevvel ayında gönüllere düşen Peygamber sevgisi ve manevi iklim, bu ayda da tazeliğini korur. Müminler için hayatın günlük akışı içinde sünnet-i seniyyeye sarılma, ibadetlerde istikrar sağlama ve ahlakı güzelleştirme şuurunun sürdürüldüğü dingin bir geçiş dönemidir.
+    </p>
+
+    <h2 id="cemaziyelevvel">CEMAZİYELEVVEL <span class="arapca-islem">جمادى الأولى</span></h2>
+    <p>
+        İsmini ilk şekillendiği çağlarda çöl gecelerinin dondurucu soğuklarına denk gelmesinden alan bu ay, "ilk donma" anlamına gelir. Tabiattaki durağanlığın aksine müminler; iç dünyalarında tefekkür, sabır ve ibadetle manevi sıcaklığı yakalayarak ruhlarını dinlendirirler.
+    </p>
+
+    <h2 id="cemaziyelahir">CEMAZİYELAHİR <span class="arapca-islem">جمادى الآخرة</span></h2>
+    <p>
+        Hicri takvimin altıncı ayıdır. Bu ayın müminler katındaki en heyecan verici tarafı, rahmet ve mağfiret sağanağı olan "Üç Aylar"ın kapısını aralamasıdır. Bir nevi manevi hazırlık dönemi olan Cemaziyelahir'in bitimiyle birlikte duaların reddedilmediği mübarek Recep ayı başlar.
+    </p>
+
+    <h2 id="recep">RECEP <span class="arapca-islem">رجب</span></h2>
+    <p>
+        Mübarek Üç Ayların ilk halkası ve dört haram aydan biridir. Peygamber Efendimiz (s.a.v.) bu ayın kutsallığını: <em>"Recep Allah'ın ayıdır, Şaban benim ayımdır, Ramazan ise ümmetimin ayıdır"</em> buyurarak müjdelemiştir. Kalplerin Ramazan-ı Şerif'e hazırlandığı tohum ekme ayıdır.
+    </p>
+    <div class="ay-detaylar">
+        <ul>
+            <li><strong>Regaip Kandili:</strong> Recep ayının ilk cuma gecesidir. Rahmetin sağanak gibi yağdığı, rağbetin ve tüm arzuların sadece Yüce Allah’a yöneltildiği lütuf gecesidir.</li>
+            <li><strong>Miraç Kandili (27 Recep):</strong> Efendimizin (s.a.v.) Mescid-i Aksa'dan göklere yükseldiği ve müminlere dinin direği olan 5 vakit namazın hediye edildiği muazzam bir yükseliş gecesidir.</li>
+        </ul>
+    </div>
+
+    <h2 id="saban">ŞABAN <span class="arapca-islem">شعبان</span></h2>
+    <p>
+        Üç Ayların ikincisi ve Ramazan-ı Şerif’e ulaştıran en tatlı köprüdür. Efendimiz (s.a.v.) "Benim ayım" dediği Şaban ayında nafile oruçlara, istiğfara ve ibadetlere ayrı bir özen gösterir; ruhunu On Bir Ayın Sultanı'na hazırlardı.
+    </p>
+    <div class="ay-detaylar">
+        <ul>
+            <li><strong>Berat Kandili (15 Şaban):</strong> Kulların bir yıllık amellerinin Allah’a arz edildiği, affın, rızkın ve bağışlanmanın zirveye ulaştığı mübarek berat gecesidir.</li>
+        </ul>
+    </div>
+
+    <h2 id="ramazan">RAMAZAN <span class="arapca-islem">رمضان</span></h2>
+    <p>
+        "On Bir Ayın Sultanı" ve İslam'ın en mukaddes zaman dilimidir. Kelime anlamındaki "yanmak" hikmeti; ihlasla tutulan oruçların ve samimi tövbelerin insanın günahlarını yakıp yok etmesini simgeler. Nefsin terbiye edildiği, sahurun ve iftarın bereketiyle kalplerin birleştiği farz oruç ayıdır.
+    </p>
+    <div class="ay-detaylar">
+        <ul>
+            <li><strong>Kur'an-ı Kerim'in İndirilmesi:</strong> İnsanlığın hidayet ve huzur rehberi olan Yüce Kur'an bu ayda indirilmeye başlanmıştır.</li>
+            <li><strong>Kadir Gecesi:</strong> Kur'an-ı Kerim'de "Bin aydan daha hayırlı" olduğu müjdelenen, meleklerin yeryüzüne fevc fevc indiği eşsiz gece. Ayın sonunda Müslümanlar Ramazan Bayramı neşesini yaşarlar.</li>
+        </ul>
+    </div>
+
+    <h2 id="sevval">ŞEVVAL <span class="arapca-islem">شوّال</span></h2>
+    <p>
+        Hicri takvimin onuncu ayıdır. İlk üç günü Ramazan Bayramı olarak büyük bir coşkuyla kutlanır. İbadetlerle arınmış ruhların şükür, akraba ziyareti (sıla-i rahim) ve kardeşlik bağlarını pekiştirme zamanıdır.
+    </p>
+    <div class="ay-detaylar">
+        <ul>
+            <li><strong>6 Gün Oruçları (Şevval Orucu):</strong> Bu ayda tutulması sünnet olan 6 günlük oruç, Efendimizin müjdesiyle Ramazan orucuyla birleştiğinde bütün bir yılı oruçlu geçirmiş gibi büyük bir sevaba vesile olur.</li>
+        </ul>
+    </div>
+
+    <h2 id="zilkade">ZİLKADE <span class="arapca-islem">ذو القعدة</span></h2>
+    <p>
+        Haram ayların üçüncüsüdür. Kelime anlamı "oturma, konaklama vakti" demektir. Savaşların durduğu, barışın ve sükunetin hakim olduğu bu ay; aynı zamanda duaların kıblesi olan Kâbe'ye yolculuk vakti gelen hacı adaylarının kutsal topraklara hazırlık yapıp yola çıktığı heyecan dolu bir dönemdir.
+    </p>
+
+    <h2 id="zilhicce">ZİLHİCCE <span class="arapca-islem">ذو الحجة</span></h2>
+    <p>
+        Hicri takvimin 12. ve son ayıdır. İslam'ın beş esasından biri olan Hac ibadeti bu ayda ifa edilir. Zilhicce’nin ilk 10 günü (Eyyâm-ı Ma'lûmât), yeryüzünde yapılan ibadetlerin ve tesbihatın Allah katında en sevimli olduğu altın günlerdir.
+    </p>
+    <div class="ay-detaylar">
+        <ul>
+            <li><strong>Kurban Bayramı (10 Zilhicce):</strong> Hz. İbrahim ve Hz. İsmail’in sarsılmaz teslimiyetinin yad edildiği, kurbanların Allah rızası için kesilerek yoksullarla paylaşıldığı bayram günüdür.</li>
+            <li><strong>Arafat Vakfesi:</strong> Arife günü milyonlarca Müslümanın Arafat Meydanı'nda ellerini semaya açıp tövbe ve dua ettiği zirve andır.</li>
+        </ul>
+    </div>
+  
+
+</div>
+{% endblock %}

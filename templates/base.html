@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}İslamiyetin Nurları{% endblock %}</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: rgb(203, 203, 203);
+            animation: fadeIn 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- ÜST BAŞLIK (NAVBAR) --- */
+        .ustbaslik {
+            background: rgb(227, 218, 210);
+            border: 2px solid #614d37;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding:70px 40px;
+            transition: all 0.3s ease;
+        }
+
+        /* LOGO LİNK STİLİ */
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        .logo-link:hover h1 {
+            opacity: 0.85;
+        }
+
+        .ustbaslik h1 {
+            color: #000000;
+            font-size: 1.8rem;
+            text-shadow: 4px 4px 6px rgba(141, 137, 137, 0.3);
+            transition: all 0.3s ease;
+        }
+        .ustbaslik h1:hover {
+            color: #2f6b3e;
+        }
+
+        .baslik-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* AŞAĞI KAYDIRINCA KÜÇÜLEN MENÜ */
+        .ustbaslik.kucuk {
+            padding: 10px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .ustbaslik.kucuk h1 {
+            font-size: 1.3rem;
+        }
+
+        .ustbaslik.kucuk .baslik-btn, 
+        .ustbaslik.kucuk .toggle-menu-btn {
+            font-size: 0.85rem;
+            padding: 6px 10px;
+        }
+
+        .baslik-item {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .baslik-btn {
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1c1a1a;
+            font-size: 0.95rem;
+            padding: 8px 14px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #fff6e2;
+            cursor: pointer;
+            border: 1px solid #635151;
+            transition: all 0.2s ease;
+        }
+
+        .baslik-btn:hover {
+            transform: translateY(-2px);
+            background-color: #f7e6c4;
+        }
+
+        .baslik-dropdown {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            border-radius: 10px;
+            left: 0;
+            top: 100%;
+            min-width: 160px;
+            padding: 8px 0;
+            z-index: 2000;
+        }
+
+        .baslik-dropdown.show, .baslik-item:hover .baslik-dropdown {
+            display: block;
+        }
+
+        .baslik-dropdown a {
+            display: block;
+            padding: 8px 16px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+
+        .baslik-dropdown a:hover {
+            background-color: #f0f0f0;
+            color: #016e58;
+        }
+
+        /* SAĞ MENÜ AÇMA BUTONU */
+        .toggle-menu-btn {
+            background-color: #016e58;
+            color: #ffffff;
+            border: 1px solid #4a3f35;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.95rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-menu-btn:hover {
+            background-color: #4a3f35;
+            transform: translateY(-2px);
+        }
+
+        /* --- YANDAN KAYAN ÇEKMECE MENÜ (OFF-CANVAS) --- */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: rgb(227, 218, 210);
+            border-left: 3px solid #614d37;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 3000;
+            transition: right 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-drawer.active {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 2px solid #614d37;
+            background-color: #fff6e2;
+        }
+
+        .drawer-header h2 {
+            font-size: 1.2rem;
+            color: #614d37;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #614d37;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .drawer-menu {
+            display: flex;
+            flex-direction: column;
+            padding: 15px 0;
+            overflow-y: auto;
+        }
+
+        .drawer-menu a {
+            display: block;
+            color: #333333;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(97, 77, 55, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .drawer-menu a:hover {
+            background-color: #614d37;
+            color: #ffffff;
+            padding-left: 32px;
+        }
+
+        /* --- ORTA İÇERİK ALANI --- */
+        .main-content {
+            flex: 1 0 auto;
+            width: 100%;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            flex-shrink: 0;
+            width: 100%;
+            background-color: #404040;
+            padding: 30px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        footer a {
+            font-size: 1rem;
+            color: rgb(240, 228, 207);
+            transition: color 0.3s ease;
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            color: #cccccc;
+            font-size: 0.9rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /* MOBİL UYUMLULUK */
+        @media(max-width: 768px) {
+            .ustbaslik {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .baslik-container {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <!-- ÜST BAŞLIK (NAVBAR) -->
+    <div class="ustbaslik" id="navbar">
+        <a href="/" class="logo-link">
+            <h1>İslamiyetin Nurları</h1>
+        </a>
+        <div class="baslik-container">
+            <div class="baslik-item">
+            <a href="{{ url_for('dorthaife') }}" class="baslik-btn">Halifeler</a>              
+                <div class="baslik-dropdown">
+                    <a href="/dorthalife#ebubekir">Hz. Ebubekir</a>
+                    <a href="/dorthalife#omer">Hz. Ömer</a>
+                    <a href="/dorthalife#osman">Hz. Osman</a>
+                    <a href="/dorthalife#ali">Hz. Ali</a>
+                </div>
+            </div>
+
+            <div class="baslik-item">
+                <a href="{{ url_for('peygamber') }}" class="baslik-btn">Peygamber Hayatı</a>
+                <div class="baslik-dropdown">
+                    <a href="/peygamber">Hz. Muhammed (s.a.v.)</a>
+                </div>
+            </div>
+
+            <div class="baslik-item">
+                <a href="{{ url_for('namazkılınısları') }}" class="baslik-btn">Namaz</a>
+                <div class="baslik-dropdown">
+                    <a href="/namazkılınısları">Namaz</a>
+                    <a href="/namazdualari">Namaz Sureleri</a>
+                    <a href="/namazvakitleri">Namaz Vakitleri</a>
+                    <a href="/digernamazlar">Diğer Namazlar</a>
+                    <a href="/vakitnamazlar">Namaz Kılınışları</a>
+                </div>
+            </div>
+
+            <div class="baslik-item">
+                <a href="{{ url_for('aciklama') }}" class="baslik-btn">Hicri Takvim</a>
+                <div class="baslik-dropdown">
+                    <a href="/aciklama">Hicri Takvimde Bugün</a>
+                </div>
+            </div>
+
+            <div class="baslik-item">
+                <a href="{{ url_for('home') }}" class="baslik-btn">İslam</a>
+                <div class="baslik-dropdown">
+                    <a href="/">İslam Nedir?</a>
+                    <a href="/islamınsartlari">İslam'ın Şartları</a>
+                    <a href="/dualar">Dualar ve Zikirler</a>
+                    <a href="/hadisler">Hadisler</a>
+                </div></div>
+
+            <!-- Hızlı Menü Butonu -->
+            <button class="toggle-menu-btn" id="openMenuBtn">
+                <span>☰</span> Menü
+            </button>
+        </div>
+    </div>
+
+    <!-- SİYAH KARARTMA GÖLGESİ -->
+    <div class="overlay" id="menuOverlay"></div>
+
+    <!-- YANDAN KAYAN ÇEKMECE MENÜ -->
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <h2>Hızlı Menü</h2>
+            <button class="close-btn" id="closeMenuBtn">&times;</button>
+        </div>
+        <div class="drawer-menu">
+            <a href="/">Anasayfa</a>
+            <a href="/hadisler">Hadisler</a>
+            <a href="/aciklama">Hicri Aylar</a> 
+            <a href="/dorthalife">Dört Halife</a>
+            <a href="/savas">Gazve ve Seriyyeler</a>
+            <a href="/namazkılınısları">Namaz kılınışları</a>
+            <a href="/namazvakitleri">Namaz vakitleri</a>
+            <a href="/namazdualari">Namaz sureleri</a>
+            <a href="/digernamazlar">Diğer Namazlar</a>            
+            <a href="/vakitnamazlar">Namaz</a>
+            <a href="/peygamber">Peygamber Efendimizin Hayatı</a>
+            <a href="/islamınsartlari">İslam'ın Şartları</a>
+            <a href="/islam">İslam</a>
+            <a href="/dualar">Dualar ve Zikirler</a>
+            <a href="/about">Hakkında</a>
+            <a href="/iletisim">İletişim</a>
+        </div>
+    </div>
+
+    <!-- SAYFA İÇERİĞİ -->
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="/hadisler">Hadisler</a>
+            <a href="/iletisim">İletişim</a>   
+            <a href="/about">Site Hakkında</a>
+            <a href="/aciklama">Hicri Aylar</a>
+        </div>
+        <div class="copyright">
+            © 2026 İslamiyetin Nurları - Tüm Hakları Saklıdır.
+        </div>
+    </footer>
+
+    <script>
+        // Navbar küçültme
+        window.onscroll = function() {
+            const navbar = document.getElementById("navbar");
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                navbar.classList.add("kucuk");
+            } else {
+                navbar.classList.remove("kucuk");
+            }
+        };
+
+        // Üst Navbar Dropdown Mantığı
+        document.querySelectorAll('.baslik-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.nextElementSibling;
+                document.querySelectorAll('.baslik-dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('show');
+                });
+                dropdown.classList.toggle('show');
+            });
+        });
+
+        window.addEventListener('click', () => {
+            document.querySelectorAll('.baslik-dropdown').forEach(d => {
+                d.classList.remove('show');
+            });
+        });
+
+        // Yandan Kayan Menü Mantığı
+        const openMenuBtn = document.getElementById('openMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const sideDrawer = document.getElementById('sideDrawer');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        function openDrawer() {
+            sideDrawer.classList.add('active');
+            menuOverlay.classList.add('active');
+        }
+
+        function closeDrawer() {
+            sideDrawer.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+
+        openMenuBtn.addEventListener('click', openDrawer);
+        closeMenuBtn.addEventListener('click', closeDrawer);
+        menuOverlay.addEventListener('click', closeDrawer);
+    </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+
+{% block title %}Dualar ve Zikirler - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        background-color: rgb(203, 203, 203);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .ortaa {
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        max-width: 900px;
+        margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
+        text-align: left;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    .ortaa p { 
+        text-align: justify;
+        font-size: 1.05rem;
+        color: #333333;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.7;
+        margin-bottom: 10px;
+    }
+
+    .ortaa h2 {
+        text-align: left;
+        font-size: 1.3rem;
+        color: #ffffff;
+        background-color: #614d37;
+        padding: 8px 18px;
+        border-radius: 6px;
+        width: fit-content;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        scroll-margin-top: 130px; 
+    }
+
+    .ortaa h1{
+        color: #2c251e;
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    /* Hızlı Erişim Menüsü */
+    .sure-linkleri-kapsayici {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        padding: 10px 0;
+        margin-bottom: 15px;
+    }
+
+    .sure-linkleri-kapsayici a {
+        background-color: #f7f4f0;
+        color: #4a3f35;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid #e6dec3;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        transition: all 0.25s ease;
+    }
+
+    .sure-linkleri-kapsayici a:hover {
+        background-color: #614d37;
+        color: #ffffff;
+        border-color: #614d37;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(97, 77, 55, 0.25);
+    }
+
+    /* VAKİT KUTULARI */
+    .vakit-kutusu {
+        background-color: #fcfbfa;
+        border-left: 4px solid #614d37;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 0 8px 8px 0;
+    }
+
+    /* --- NAMAZ BUTONLARI GRID (IZGARA) YAPISI --- */
+    .namaz-grid-kapsayici {
+        display: grid;
+        /* Ekran genişliğine göre en az 260px genişliğinde yan yana dizilmesini sağlar */
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+        gap: 20px;
+        margin-top: 30px;
+        scroll-margin-top: 130px; /* Tıklanıp kaydırıldığında navbar altında kalmaması için */
+    }
+
+    .namaz-grid-kapsayici button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px; /* Görsel alan yüksekliği dengelendi */
+        width: 100%;  /* Izgaraya tam oturması için */
+        border: 1.5px solid rgb(104, 104, 104);
+        padding: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .namaz-grid-kapsayici button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    .namaz-grid-kapsayici a {
+        color: #ffffff; /* Görsel üzerinde net görünmesi için beyaz yazı */
+        font-size: 1.15rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        text-decoration: none;
+        text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8); /* Yazının okunabilirliğini artıran gölge */
+        text-align: center;
+        transition: color 0.3s ease;
+    }
+
+    .namaz-grid-kapsayici button:hover a {
+        color: #f5eedc; /* Üzerine gelince krem rengi ışıl karalık */
+    }
+
+    /* Arkaplan Resimleri */
+    .aciklama {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/static/namaz.png'); 
+    }   
+    .sabah {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/static/sabah.png'); 
+    }
+    .ogle {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/static/öğle.png'); 
+    }
+    .ikindi {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/static/ikindi.png'); 
+    }
+    .aksam {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/static/akşam.png'); 
+    }
+    .yatsi {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/static/gece.png'); 
+    }
+
+    @media (max-width: 768px) {
+        .ortaa {
+            width: 92%;
+            margin-top: 130px;
+            padding: 20px 15px;
+        }
+        .namaz-grid-kapsayici {
+            grid-template-columns: 1fr; /* Mobilde alt alta geçer */
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ortaa">
+
+    <h1>- Namaz Nedir? Kılınışları nasıl? -</h1>
+
+    <!-- Hızlı Erişim Menüsü (Sadece Namaz Kılınışları Butonu) -->
+    <div class="sure-hizli-menu">
+        <div class="sure-linkleri-kapsayici">
+            <a href="#namaz-kilinislari">Namaz Kılınışları</a>
+        </div>
+    </div>
+
+    <hr style="border: none; border-bottom: 1px solid #eee; margin: 25px 0;">
+
+    <h2>Namaz Nedir?</h2>
+    <p>
+        Namaz (Arapça adıyla <em>Salât</em>), kelime anlamı olarak "dua etmek, övmek, tazim etmek" demektir. İslam dininde ise tekbir ile başlayıp selam ile son bulan, belirli şartlar, rükünler ve zikirler çerçevesinde günde beş vakit yerine getirilen temel ibadettir. Namaz, kulun Yaratanı ile kurduğu en doğrudan, en engelsiz ve en samimi iletişim bağıdır. İmanın amele dönüşmüş en belirgin göstergesi ve dinin direğidir.
+        Müminler, namaz kılarak Allah'a olan bağlılıklarını ve teslimiyetlerini ifade ederler. İnsanın ruh sağlığının dengeli olabilmesi için mutlaka meşguliyeti olmalıdır. Bunun en iyi yolu da günde 5 vakit kılınan namaz ibadetidir. Hem Allah'a inancın, şükrün ve her şeyi O'na bırakmanın getirdiği huzur ile hem de belli hareketler ve düzenli vakitlerde yapılması ile insana iyi gelir.
+    </p>
+    
+    <h2>Namaz Neden Kılınır?</h2>
+    <p>
+        Namaz kılmak, her şeyden önce bizi yoktan var eden, sayılamayacak kadar nimet bahşeden Yüce Allah'a olan şükran borcumuzu ödemektir. Kur'an-ı Kerim'de insanın yaratılış gayesi Allah'a kulluk etmek olarak bildirilmiştir. Namaz, günün belirli saatlerinde dünya telaşına ara verip kalbi ve ruhu tazeleme imkanı sunar. İnsanı kötülüklerden, hayasızlıktan ve haramdan alıkoyar; ruhsal bir dinginlik ve iç huzuru sağlar. Ankebût Suresi 45. ayette şöyle buyrulur: <em>"Şüphesiz namaz, insanı hayasızlıktan ve kötülükten alıkoyar."</em>
+    </p>
+
+    <h2>Ayetlerle Beş Vakit Namaz</h2>
+    <p>
+        Namazın vakitleri ve farziyeti Kur'an-ı Kerim'in çeşitli ayetlerinde işaret edilmiş ve emredilmiştir. Nisa Suresi 103. ayette <em>"Namazı bitirince de ayakta iken, otururken ve yatarken Allah’ı anın. Güvenlik içinde olduğunuzda namazı gerektiği gibi kılın. Şüphe yok ki namaz, müminler üzerine vakitleri belli olarak yazılmış bir ödevdir."</em> buyrularak zamanın önemi vurgulanmıştır. Vakitlere işaret eden bazı temel ayetler şunlardır:
+    </p>
+
+    <div class="vakit-kutusu">
+        <p><strong>Sabah ve Akşam/Yatsı Vakitleri</strong></p>
+        <p style="margin-bottom:0;"><strong>Hûd Suresi, 114. Ayet:</strong> "Gündüzün iki tarafında (sabah ve öğle/ikindi) ve gecenin gündüze yakın saatlerinde (akşam ve yatsı) namaz kıl. Şüphesiz ki iyilikler kötülükleri yok eder. İşte bu, öğüt almak isteyenler için bir hatırlatmadır."</p>
+    </div>
+
+    <div class="vakit-kutusu">
+        <p><strong>Orta Namaz (İkindi Namazı)</strong></p>
+        <p style="margin-bottom:0;"><strong>Bakara Suresi, 238. Ayet:</strong> "Namazları ve orta namazı aksatmadan kılın, huşû içinde Allah’ın huzurunda durun."</p>
+    </div>
+
+    <div class="vakit-kutusu">
+        <p><strong>Güneşin Dönüşü ve Gece Karanlığı</strong></p>
+        <p style="margin-bottom:0;"><strong>İsrâ Suresi, 78. Ayet:</strong> "Gündüzün güneşin gün ortasını aşmasından gecenin karanlığına kadar namazı kıl; bir de sabah namazını; çünkü sabah namazı şahitlidir."</p>
+    </div>
+
+    <h2>Peygamber Efendimiz (s.a.v.) Gibi Kılmak</h2>
+    <p>
+        Kur'an-ı Kerim'de namazın farz olduğu ve ana vakitleri bildirilirken; kaç rekât kılınacağı, rükûda ve secdede nelerin okunacağı, kıyam ve oturuş şekilleri bizzat Sevgili Peygamberimiz (s.a.v.) tarafından uygulamalı olarak öğretilmiştir. Peygamber Efendimiz (s.a.v.) bir hadis-i şeriflerinde: <strong>"Beni nasıl namaz kılıyor görüyorsanız, siz de öyle kılın"</strong> (Buhârî, Ezân 18) buyurmuştur. Bu sebeple namaz ibadeti, Efendimizin sünnetine tam bir bağlılıkla ve gösterdiği şekliyle eda edilir.
+    </p>
+    <p>
+        Namazın bazı şartları vardır. Altısı içinden ve altısı dışından olmak üzere 12 adettir.
+    </p> 
+
+    <h2>Dışındaki Şartlar (Farzları)</h2>
+    <p>
+        Bunlar namaza başlamadan önce yerine getirilmesi zorunlu olan hazırlıklardır.<br><br>
+        <strong>1- HADESTEN TAHARET:</strong> Abdesti olmayanın abdest alması, gusletmesi gereken durumdaysa boy abdesti (gusül) almasıdır.<br>
+        <strong>2- NECASETTEN TAHARET:</strong> Bedenin, giysilerin ve namaz kılınacak secde yerinin gözle görülebilir veya dinen pis sayılan maddelerden temizlenmesidir.<br>
+        <strong>3- SETR-İ AVRET:</strong> Vücudun dinen örtülmesi gereken (mahrem) bölgelerinin usulüne uygun şekilde örtülmesidir.<br>
+        <strong>4- İSTİKBAL-İ KIBLE:</strong> Namaz kılarken yönü Mekke'deki Kâbe'ye (kıbleye) dönmektir.<br>
+        <strong>5- VAKİT:</strong> Kılınacak namazın kendi vaktinin girmiş olmasıdır. Bu vakit güneş baz alınarak veya ezan vakti olarak belirlenir.<br>
+        <strong>6- NİYET:</strong> Hangi namazı kılacağına kalben karar vermek ve bunu dil ile de niyet ederek desteklemektir.
+    </p>
+
+    <h2>İçindeki Şartlar (Rükünleri)</h2>
+    <p>
+        Bunlar namaza başladıktan sonra ibadeting kendi içinde uygulanan temel hareket ve eylemlerdir.<br><br>
+        <strong>1- İFTİTAH TEKBİRİ:</strong> Namaza başlarken "Allahu Ekber" diyerek tekbir almaktır.<br>
+        <strong>2- KIYAM:</strong> Namazda ayakta dik durmaktır.<br>
+        <strong>3- KIRAAT:</strong> Ayaktayken Kur'an-ı Kerim'den sure veya ayetler okumaktır.<br>
+        <strong>4- RÜKU:</strong> Kıraatten sonra hands dizlere koyarak, belin yere paralel olacak şekilde eğilmektir.<br>
+        <strong>5- SECDE:</strong> Rükûdan sonra hands, dizleri, alnı ve burnu yere koyarak yere kapanmaktır.<br>
+        <strong>6- KA'DE-İ AHİRE:</strong> Namazın son oturuşunda "Tahiyyat" duasını okuyacak kadar oturmaktır.
+    </p>
+
+    <!-- Yan Yana Dizilen Butonlar Kapsayıcısı (Çapa Noktası Eklendi) -->
+    <div id="namaz-kilinislari" class="namaz-grid-kapsayici">
+        <button class="sabah"><a href="/vakitnamazlar">Sabah namazı nedir nasıl kılınır?</a></button> 
+        <button class="ogle"><a href="/vakitnamazlar">Öğle namazı nedir nasıl kılınır?</a></button>
+        <button class="ikindi"><a href="/vakitnamazlar">İkindi namazı nedir nasıl kılınır?</a></button>
+        <button class="aksam"><a href="/vakitnamazlar">Akşam namazı nedir nasıl kılınır?</a></button>   
+        <button class="yatsi"><a href="/vakitnamazlar">Yatsı namazı nedir nasıl kılınır?</a></button>
+        <button class="aciklama"><a href="/digernamazlar">Diğer namazlar</a></button>
+    </div>
+
+</div>
+{% endblock %}

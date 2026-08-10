@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}İslam'ın Şartları - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 150vh;
+        background-color: rgb(203, 203, 203);
+    }
+
+    h1 {
+        color: #2c251e;
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .islaminsartlari {
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        max-width: 900px;
+        margin: 220px auto 60px auto; /* Üst boşluk navbar'ın altından başlaması için */
+        text-align: left;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+
+    .islaminsartlari p {
+       text-align: justify;
+        font-size: 1.05rem;
+        color: #333333;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.7;
+        margin-bottom: 10px;
+    }
+    .islaminsartlari h2{
+         text-align: left;
+        font-size: 1.3rem;
+        color: #ffffff;
+        background-color: #614d37;
+        padding: 8px 18px;
+        border-radius: 6px;
+        width: fit-content;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+        /* Butonlara tıklandığında başlığın üst sabit menünün altında kalmaması için offset */
+        scroll-margin-top: 130px; 
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="islaminsartlari">
+    
+    <h1>- İslam'ın Şartları -</h1>
+    
+    <p>
+        İslam'ın şartları, bir Müslümanın inanç dünyasını amelle taçlandıran beş temel esastır. Sevgili Peygamberimiz (s.a.v.) bir hadis-i şeriflerinde; <em>"İslam beş esas üzerine bina olunmuştur..."</em> buyurarak bu ibadetlerin dinin direği ve omurgası olduğunu müjdelemiştir.
+    </p>
+
+    <h2>1- Kelime-i Şehadet Getirmek:</h2><br><br>
+       <p> İslam kapısından içeri adım atmanın ilk ve en temel şartıdır. İmanın özü olan bu mübarek cümleyi dille beyan etmek (ikrar) ve kalben sarsılmaz bir teslimiyetle onaylamak (tasdik) gerekir.<br><br>
+        <strong>Arapça Okunuşu:</strong><br>
+        <span style="color: #264130; font-size: 1.25rem; font-weight: bold;">اَشْهَدُ اَنْ لاَ اِلهَ اِلاَّ اللهُ وَاَشْهَدُ اَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</span><br><br>
+        <strong>Türkçe Okunuşu:</strong> "Eşhedü en lâ ilâhe illallâh ve eşhedü enne Muhammeden abdühû ve rasûlüh."<br><br>
+        <strong>Anlamı:</strong> "Şahitlik ederim ki Allah’tan başka hiçbir ilah yoktur. Ve yine şahitlik ederim ki Hz. Muhammed (s.a.v.) O’nun kulu ve elçisidir."
+    </p>
+
+    <h2>2- Namaz Kılmak:</h2><br><br>
+       <p> Dinin direği, ruhun şifası ve müminin mi'racıdır. Akıl sağlığı yerinde ve büluğ çağına ermiş her Müslümana günde 5 vakit namaz kılmak farzdır. Namaz; insanın günün karmaşasında durup Yüce Yaratan'ın huzuruna çıkması, O'na şükretmesi, sığınması ve ruhunu dünyevi kirlerden arındırmasıdır.
+    </p>
+
+    <h2>3- Oruç Tutmak:</h2><br><br>
+         <p>
+        Mübarek Ramazan ayında tan yerinin ağarmasından (imsak) akşam güneş batıncaya (iftar) kadar niyet ederek yeme, içme ve nefsani arzulardan uzak durarak yapılan ibadettir. Oruç sadece mideyi aç bırakmak değil; dili yalandan, kalbi kötü düşüncelerden ve azaları günahtan koruma terbiyesidir. Nefsi dizginler, yoksulun halinden anlamayı öğretir ve sabrı pekiştirir.
+    </p>
+
+    <h2>4- Zekat Vermek:</h2><br><br>
+     <p>
+        Dinen zengin sayılan (nisap miktarı mala sahip olan) Müslümanların, yılda bir kez mallarının ve birikimlerinin %2.5'ini (kırkta birini) Kur'an-ı Kerim'de belirtilen ihtiyaç sahiplerine vermesidir. Zekat, malı eksiltmez; aksine temizler ve bereketlendirir. Toplumdaki zengin ile fakir arasında köprü kurarak sevgi, merhamet ve adaleti pekiştirir.
+    </p>
+
+    <h2>5- Hacca Gitmek:</h2><br><br>
+    <p>
+        Maddi durumu ve sağlık şartları elveren Müslümanların, ömründe bir defa mukaddes toprakları (Mekke-i Mükerreme ve Kâbe-i Muazzama) ziyaret ederek gerçekleştirdiği farz ibadettir. Hac; dilleri, ırkları ve renkleri farklı milyonlarca Müslümanın kefeni simgeleyen ihramlara bürünerek Yüce Allah'ın huzurunda eşitlendiği, mahşer gününün provası niteliğinde muazzam bir ibadettir.
+    </p>
+
+</div>
+{% endblock %}

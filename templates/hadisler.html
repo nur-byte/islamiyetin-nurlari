@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+
+{% block title %}Dualar ve Zikirler - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color:rgb(203, 203, 203) ;
+      margin: 0;
+      padding: 0;
+      min-height: 150vh;            
+    }
+
+    .ortaa {
+       position: relative;
+    height: auto;
+    min-height: 590px;
+    width: 80%;
+    max-width: 900px;
+    margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
+    text-align: left;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    }
+ .sure-linkleri-kapsayici {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        padding: 10px 0;
+        margin-bottom: 15px;
+    }
+
+    .sure-linkleri-kapsayici a {
+        background-color: #f7f4f0;
+        color: #4a3f35;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid #e6dec3;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        transition: all 0.25s ease;
+    }
+
+    .sure-linkleri-kapsayici a:hover {
+        background-color: #614d37;
+        color: #ffffff;
+        border-color: #614d37;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(97, 77, 55, 0.25);
+    }
+
+    .link a {
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+      text-decoration:none;
+      color: rgb(0, 0, 0); 
+      border-style:solid ;
+      border-color:rgb(64, 101, 101);
+      border-radius: 10px;
+      display: block;
+      padding: 25px 30px ;
+      margin-left:10px;
+      font-size: 17px;
+      margin-top: 80px;
+      width: fit-content;
+      transition: color 0.3s ease; 
+    }
+
+    .link a:hover {
+      color: #94d3fc; 
+    }
+
+    .link a:active {
+      color: #72c2b2; 
+    }
+  
+    .ortaa h2 {
+       text-align: left;
+        font-size: 1.3rem;
+        color: #ffffff;
+        background-color: #614d37;
+        padding: 8px 18px;
+        border-radius: 6px;
+        width: fit-content;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+        /* Butonlara tıklandığında başlığın üst sabit menünün altında kalmaması için offset */
+        scroll-margin-top: 130px; 
+    }
+
+    .ortaa p{
+      text-align:left;
+      font-size:1rem;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      margin-left:20px;
+      margin-right:20px; 
+      width: fit-content;
+    }
+
+    .ortaa p:hover{
+      color:rgb(34, 97, 55);
+    }
+
+    
+
+    h1 {
+      color: #1c1c1c;
+      text-align:center;
+      font-size:25px;
+      margin-top:20px;
+    }
+    
+    .hadis-kutusu{
+       background-color: #fcfbfa;
+        border-left: 4px solid #614d37;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 0 8px 8px 0;
+    }
+ 
+
+   
+  
+  </style>
+  {% endblock %}
+
+{% block content %}
+</head>
+
+<body> 
+
+  <div class ="ortaa">
+ <h1>- Hadis-i Şerifler -</h1>
+ <div class="sure-hizli-menu">
+  
+ 
+      <div class="sure-linkleri-kapsayici">
+      <a href="#aile-akraba-komsu">Aile, Akraba, Komşu</a>
+      <a href="#iyilik-ahlak-sadaka">İyilik, Güzel Davranış, Sadaka</a>
+      <a href="#sabir-sukur">Sabır ve Şükür</a>
+      <a href="#gunah-tovbe">Günah ve Tövbe</a>
+      <a href="#olum-ahiret">Ölüm ve Ahiret</a>
+      <a href="#ilmin-fazileti">İlmin Fazileti</a>
+      <a href="#dilin-muhafazasi">Dilin Muhafazası</a>
+      <a href="#dua-etmek">Dua Etmek</a>
+    </div></div>
+  
+
+
+    <div class="hadis-kutusu">
+    <h2 id="aile-akraba-komsu">Aile, Akraba, Komşu hadisleri</h2>
+    <p><br>"Sizin en hayırlınız, ailesine karşı en hayırlı olanınızdır. Ben de aileme karşı en hayırlı olanınızım." (Tirmizî, Menâkıb, 63)
+      <br><br>"Hiçbir baba, çocuğuna güzel terbiyeden daha üstün bir miras bırakamaz." (Tirmizî, Birr, 33)
+      <br><br>"Müminlerin iman bakımından en mükemmeli, ahlakı en güzel olanıdır. Sizin en hayırlınız da hanımlarına karşı en iyi davrananınızdır." (Tirmizî, Radâ, 11)
+      <br><br>"Her kim rızkının bollaştırılmasını ve ömrünün uzatılmasını isterse, akrabalık bağlarını koruyup gözetsin (sıla-i rahim yapsın)." (Buhârî, Edeb, 12; Müslim, Birr, 20)
+      <br><br>"Akrabalık bağlarını koparan kimse cennete giremez." (Buhârî, Edeb, 11; Müslim, Birr, 19)
+      <br><br>"Akrabayı arayıp soran, iyiliğe iyilikle karşılık veren kişi değildir. Gerçekten akrabalık bağını gözeten, kendisiyle bağ koparıldığı halde akrabalık ilişkilerini devam ettirendir." (Buhârî, Edeb, 15)
+      <br><br>"Cebrail bana komşu hakkında o kadar çok tavsiyede bulundu ki, neredeyse komşuyu komşuya mirasçı kılacak sandım." (Buhârî, Edeb, 28; Müslim, Birr, 140)
+      <br><br>"Vallahi iman etmiş olmaz, vallahi iman etmiş olmaz, vallahi iman etmiş olmaz!"<br>
+      Sahabiler: "Kim ey Allah'ın Resulü?" diye sorduklarında:<br>
+      "Yapacağı kötülüklerden komşusu güvende olmayan kimse!" buyurdu. (Buhârî, Edeb, 29)
+      <br><br>"Allah'a ve ahiret gününe iman eden kimse, komşusuna eziyet etmesin ." (Buhârî, Edeb, 31; Müslim, Îmân, 75)
+      <br><br>"Yanı başındaki komşusu açken tok yatan kimse (gerçek anlamda) iman etmemiştir." (Hâkim, Müstedrek, II, 15)
+      <br><br>
+    </p>
+</div>
+
+<div class="hadis-kutusu">
+    <h2 id="iyilik-ahlak-sadaka">İyilik, güzel davranış,sadaka hadisleri</h2>
+    <p>"İyilik, güzel ahlaktan ibarettir. Günah ise vicdanını tırmalayan ve insanların bilmesini istemediğin şeydir." (Müslim, Birr, 15)
+      <br><br>"İyiliğe öncülük eden kimseye, o iyiliği yapanın ecri gibi sevap verilir." (Müslim, Birr, 144)
+      <br><br>"Her iyilik bir sadakadır." (Buhârî, Edeb, 33)
+      <br><br>"Müminlerin iman bakımından en mükemmeli, ahlak bakımından en güzel olanıdır." (Ebû Dâvûd, Sünnet, 15)
+      <br><br>"Kıyamet günü müminin mizanında güzel ahlaktan daha ağır gelecek hiçbir şey yoktur." (Tirmizî, Birr, 62)
+      <br><br>"Allah, her işte güzel davranmayı (ihsanı) emretmiştir." (Müslim, Birr, 78)
+      <br><br>"Din kardeşinin yüzüne tebessüm etmen bir sadakadır." (Tirmizî, Birr, 36)
+      <br><br>"Sadaka malı eksiltmez." (Müslim, Birr, 69)
+      <br><br>"Güzel söz sadakadır." (Müslim, Müsâfirîn, 84)
+      <br><br>"Böyleleri iyilik yapsın, kendisini kötülükten alıkoysun. Çünkü bu da onun için bir sadakadır." (Buhârî, Zekât, 30)
+    </p>
+</div>
+
+<div class="hadis-kutusu">
+    <h2 id="sabir-sukur">Sabır ve Şükür hadisleri</h2>
+    <p>"Hiç kimseye sabırdan daha hayırlı ve daha geniş bir ikram verilmemiştir." (Buhârî, Zekât, 50; Müslim, Zekât, 124)
+      <br><br>"Gerçek sabır, musibetin ilk baş gösterdiği anda olanıdır." (Buhârî, Cenâiz, 32; Müslim, Cenâiz, 62)
+      <br><br>"Müslümana fenalık, hastalık, keder, hüzün, eza, iç sıkıntısı arız olmaz ki, hatta kendisine bir diken batsa bile, Allah bunlarla onun günahlarını bağışlamış olmasın." (Buhârî, Merdâ, 1; Müslim, Birr, 52)
+      <br><br>"İnsanlara teşekkür etmeyen, Allah'a da şükretmez." (Tirmizî, Birr, 35; Ebû Dâvûd, Edeb, 11)
+      <br><br>"Hayat şartları sizinkinden daha aşağı olanlara bakınız; sizden daha iyi olanlara bakmayınız. Bu, Allah'ın üzerinizdeki nimetini hor görmemeniz için daha uygundur." (Müslim, Zühd, 9)
+      <br><br>"Yemek yiyip şükreden kimse, oruç tutup sabreden kimse gibidir." (Tirmizî, Sıyâm, 73; İbn Mâce, Sıyâm, 55)
+    </p>
+</div>
+
+<div class="hadis-kutusu">
+    <h2 id="gunah-tovbe">Günah ve tövbe hadisleri</h2>
+    <p><br><br>"Günahından tövbe eden kimse, hiç günah işlememiş gibidir." (İbn Mâce, Zühd, 30)
+      <br><br>"Eğer siz günah işlemeseydiniz, Allah sizi helak eder ve yerinize günah işleyip peşinden tövbe eden ve Allah'ın da kendilerini bağışlayacağı bir kavim getirirdi." (Müslim, Tevbe, 11)
+      <br><br>"Kul bir günah işlediği zaman kalbinde siyah bir nokta oluşur. Eğer tövbe edip vazgeçer ve bağışlanma dilerse kalbi temizlenir." (Tirmizî, Tefsîru'l-Kur'ân, 83)
+      <br><br>"Allah Teâlâ şöyle buyurdu: Ey âdemoğlu! Sen bana dua ettiğin ve benden af umduğun sürece, işlediğin günahlar ne kadar çok olursa olsun, onlara bakmadan seni bağışlarım." (Tirmizî, Daavât, 98)
+      <br><br>"Allah Teâlâ şöyle buyurur: Kulum bana bir karış yaklaşırsa, ben ona bir arşın yaklaşırım. O bana bir arşın yaklaşırsa, ben ona bir kulaç yaklaşırım. O bana yürüyerek gelirse, ben ona koşarak giderim." (Buhârî, Tevhîd, 50; Müslim, Zikir, 2)
+      <br><br>"Allah Teâlâ şöyle buyurmuştur: Kulun günahı gök kubbeyi dolduracak kadar bile olsa, bana hiçbir şeyi ortak koşmadan karşıma çıkarsa, ben onu mutlaka bağışlarım." (Tirmizî, Daavât, 98)
+      <br><br>"Allah Teâlâ şöyle buyurdu: Bir kul bir günah işledi ve 'Rabbim, bir günah işledim, beni bağışla' dedi. Rabbi de, 'Kulum günahı bağışlayacak veya ondan dolayı cezalandıracak bir Rabbi olduğunu bildi. Kulumu bağışladım' buyurdu." (Buhârî, Tevhîd, 35; Müslim, Tevbe, 29)
+    </p>
+</div>
+
+<div class="hadis-kutusu">
+    <h2 id="olum-ahiret">Ölüm ve ahiret hadisleri</h2>
+    <p><br><br>"Zevkleri bıçak gibi keseni (yani ölümü) çokça hatırlayın." (Tirmizî, Zühd, 4; Nesâî, Cenâiz, 3)
+      <br><br>"Dünyada tıpkı bir garip veya bir yolcu gibi ol!" (Buhârî, Rikâk, 3)
+      <br><br>"Ölüyü (mezara kadar) üç şey takip eder: Ailesi, malı ve ameli. Bunlardan ikisi geri döner, biri baki kalır: Ailesi ve malı geri döner, ameli kendisiyle baki kalır." (Buhârî, Rikâk, 42; Müslim, Zühd, 5)
+      <br><br>"Akıllı kişi, nefsine hakim olan ve ölümden sonrası için çalışandır. Aciz kişi ise nefsinin arzularına uyan ve Allah'tan (bağışlanma) umandır." (Tirmizî, Kıyamet, 25; İbn Mâce, Zühd, 31)
+      <br><br>"Kıyamet gününde kul, ömrünü nerede tükettiğinden, gençliğini nerede çürüttüğünden, malını nereden kazanıp nerede harcadığından ve ilmiyle ne yaptığından hesaba çekilmedikçe yerinden kımıldayamaz." (Tirmizî, Kıyamet, 1)
+      <br><br>"Kıyamet gününde müminin mizanına konacak ilk şey, güzel ahlaktır." (Tirmizî, Birr, 62)
+      <br><br>"Allah Teâlâ şöyle buyurur: Kulum beni nasıl tanırsa ben ona öyle davranırım. O beni zikrettiği (hatırladığı) yerde ben onunla beraberim." (Buhârî, Tevhîd, 15; Müslim, Zikir, 2)
+    </p>
+
+</div>
+
+<div class ="hadis-kutusu">
+
+    <h2 id="ilmin-fazileti">İlmin Fazileti </h2>
+    <p><br><br>"İlim aramak amacıyla bir yola giren kimseye, Allah cennete giden yolu kolaylaştırır." (Müslim, Zikir, 38)
+      <br><br>"Yalnız şu iki kişiye gıpta edilir: Biri, Allah'ın kendisine verdiği malı hak yolunda harcayan kimse; diğeri de Allah'ın kendisine verdiği ilim ve hikmetle hükmeden ve onu başkalarına öğreten kimse." (Buhârî, İlim, 15; Müslim, Müsâfirîn, 268)
+      <br><br>"İlim öğrenmek her Müslümana farzdır." (İbn Mâce, Mukaddime, 17)
+    </p>
+</div>
+
+<div class ="hadis-kutusu">
+    <h2 id="dilin-muhafazasi">Dilin Muhafazası </h2>
+    <p><br><br>"Allah'a ve ahiret gününe iman eden kimse, ya hayır söylesin ya da sussun!" (Buhârî, Edeb, 31; Müslim, Îmân, 74)
+      <br><br>"Kul, iyice düşünmeden bir söz söyleyiverir de bu yüzden cehennemin, doğu ile batı arasından daha uzak bir yerine düşer." (Buhârî, Rikâk, 23; Müslim, Zühd, 49)
+      <br><br>"Müslüman, dilinden ve elinden Müslümanların güvende olduğu kimsedir." (Buhârî, Îmân, 4; Müslim, Îmân, 64)
+    </p>
+</div>
+
+<div class ="hadis-kutusu">
+    <h2 id="dua-etmek">Dua Etmek </h2>
+    <p><br><br>"Dua, ibadetin özüdür." (Tirmizî, Daavât, 1)
+      <br><br>"Şüphesiz Rabbiniz hayâ ve kerem sahibidir. Kulu ellerini O'na açtığı zaman, onları boş çevirmekten hayâ eder." (Ebû Dâvûd, Vitir, 23; Tirmizî, Daavât, 104)
+      <br><br>"Allah Teâlâ şöyle buyurdu: Kulum beni nasıl zannederse ben öyleyimdir. O beni anarken ben onunla beraberim." (Buhârî, Tevhîd, 15; Müslim, Zikir, 2)
+    </p> 
+
+
+</div>
+
+
+    <div class ="link">
+      <a href="https://kutubusitte.com/" class="link">
+        Ayrıca bakınız sahih hadisler kitabı -> "Kutub-i Sitte" PDF'yi Görüntüle
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
+
+{% endblock %}
+

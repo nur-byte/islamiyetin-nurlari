@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block title %}İslamiyetin nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    .orta p {
+        margin-left: 15px;
+        margin-top: 25px;
+        text-align: left;
+        font-size: 1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        width: fit-content;
+    }
+
+    .ortanınortası {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px; 
+        padding: 10px;
+    }
+
+    .link-buton {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        border-radius: 10px;
+    }
+
+    .orta button {
+        width: 300px;
+        height: 100px;
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+        border: solid 1px #000000;
+        cursor: pointer;
+        font-size: 0.95rem;
+        background-color: rgb(220, 209, 194);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 450;
+    }
+
+    .orta button:hover {
+        background-color: #bccce7;
+    }
+
+    .orta {
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 200px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 25px;
+        line-height: 1.6;
+        background-color: #ffffff;
+        overflow-y: auto;
+    }
+
+    .orta a.namaz {
+        color: rgb(97, 161, 116);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;   
+        border: none;
+        text-decoration: none; 
+        display: inline;
+    }
+
+    .tarih-paneli {
+    background: linear-gradient(135deg, #fefefe 0%, #f7f4f0 100%);
+    border-top: 4px solid #614d37;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 20px auto 30px 0; /* Sol tarafa hizalandı */
+    max-width: 420px; /* Devasa genişlik yerine ideal küçük kart boyutu */
+    width: 100%; /* Mobil uyum için maks genişliği aşmaz */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+.tarih-baslik {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #614d37;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Başlık sola çekildi */
+    gap: 8px;
+}
+
+/* Tarihleri dikeyde şık bir liste haline getiriyoruz */
+.tarih-icerik-kapsayici {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tarih-satir {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.tarih-etiket {
+    font-weight: 600;
+    color: #555555;
+    font-size: 0.9rem;
+}
+
+.tarih-deger {
+    font-weight: bold;
+    color: #2c251e;
+    font-size: 0.95rem;
+    background-color: #f7f4f0;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+    .orta h1{
+         text-align: left;
+        font-size: 1.3rem;
+        color: #ffffff;
+        background-color: #614d37;
+        padding: 8px 18px;
+        border-radius: 6px;
+        width: fit-content;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+        /* Butonlara tıklandığında başlığın üst sabit menünün altında kalmaması için offset */
+        scroll-margin-top: 130px; 
+    }
+    /* Mobil ekranlarda tarihlerin üst üste binmesi için */
+    @media (max-width: 600px) {
+        .tarih-icerik-kapsayici {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .orta a {
+        color: rgb(0, 0, 0);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+        padding: 5px 5px;
+        display: block;
+        width: fit-content;
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 55px;
+        text-decoration: none;
+    }
+
+    .orta a:hover {
+        color: #94d3fc;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="orta">
+    <div class="tarih-paneli">
+        <div class="tarih-baslik">
+            <span>📅</span> BUGÜNÜN TARİHİ
+        </div>
+        
+        <div class="tarih-satir">
+            <span class="tarih-etiket">🌙 Hicri Takvim:</span>
+            <span class="tarih-deger">{{ hijri_date }}</span>
+        </div>
+        
+        <div class="tarih-satir">
+            <span class="tarih-etiket">☀️ Miladi Takvim:</span>
+            <span class="tarih-deger">{{ gregorian_date }}</span>
+        </div>
+    </div>
+
+    <div class="ortanınortası">
+        <a href="/islamınsartlari" class="link-buton"><button>Buluğ çağına erişmiş tüm müslümanlara farz olan ibadetler nelerdir?</button></a>
+        <a href="/namazkılınısları" class="link-buton"><button>Namaz nasıl kılınır?</button></a>
+        <a href="/dorthalife" class="link-buton"><button>Dört Halife kimlerdir?</button></a>
+        <a href="/aciklama" class="link-buton"><button>Hicr-i Aylar hangileridir?</button></a>
+    </div>
+
+    <h1>İslam Nedir?</h1>
+    <p>İslam, Arapça kökenli bir kelimedir ve "barışa teslim olmak" anlamına gelir. İslam, Allah'ın (c.c) tek ve eşsiz olduğuna, Hz. Muhammed'in (s.a.v) onun peygamberi olduğuna ve Kuran-ı Kerim'in Allah'ın kelamı olduğuna inanmayı temel alan bir dindir. İslam dininin temel meseleleri imanın 6 şartı ve islamın 5 şartı içerisindedir.</p>
+    <p>İslam, sadece bir din değil, aynı zamanda bir yaşam tarzıdır. Müslümanlar, İslam'ın temel ilkelerine göre yaşarlar ve bu ilkeler, onların ahlak, aile, toplum ve siyaset gibi alanlardaki davranışlarını yönlendirir.</p>
+
+</div>
+{% endblock %}

@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% block title %}Peygamber Efendimiz'in Hayatı - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        background-color: rgb(203, 203, 203);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* İçerik Kartı - Sağdan ve Soldan Tam Ortada */
+    .hayat {
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        max-width: 900px;
+        margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
+        text-align: left;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    /* Üst Başlık */
+    .sayfa-baslik {
+        color: #2c251e;
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    /* Modern Hızlı Erişim Sekmeleri (Butonlar) */
+    .hizli-erisim-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        padding: 10px 0;
+        margin-bottom: 15px;
+    }
+
+    .hizli-erisim-btn {
+        background-color: #f7f4f0;
+        color: #4a3f35;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid #e6dec3;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        transition: all 0.25s ease;
+    }
+
+    .hizli-erisim-btn:hover {
+        background-color: #614d37;
+        color: #ffffff;
+        border-color: #614d37;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(97, 77, 55, 0.25);
+    }
+
+    /* Bölüm Başlıkları */
+    .hayat h2 {
+        text-align: left;
+        font-size: 1.3rem;
+        color: #ffffff;
+        background-color: #614d37;
+        padding: 8px 18px;
+        border-radius: 6px;
+        width: fit-content;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+        /* Butonlara tıklandığında başlığın üst sabit menünün altında kalmaması için offset */
+        scroll-margin-top: 130px; 
+    }
+
+    /* Metin Paragrafları */
+    .hayat p {
+        text-align: justify;
+        font-size: 1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.6;
+        color: #2c2c2c;
+        margin-bottom: 20px;
+    }
+
+    /* Veda Hutbesi Özel Kutusu */
+    .sekil {
+        background-color: #fcfbfa;
+        border-left: 4px solid #614d37;
+        padding: 15px 20px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .sekil h2 {
+        margin-top: 10px;
+    }
+
+    /* Mobil Ekran Uyumu */
+    @media (max-width: 768px) {
+        .hayat {
+            width: 90%;
+            padding: 20px 15px;
+            margin-top: 240px;
+        }
+        .hayat h2 {
+            font-size: 17px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hayat">
+    
+    <h1 class="sayfa-baslik">- Peygamber Efendimiz'in Hayatı -</h1>
+
+    <!-- Hızlı Erişim Sekmeleri (En Baştaki Butonlar) -->
+    <div class="hizli-erisim-container">
+        <a href="#cocukluk-genclik" class="hizli-erisim-btn">Çocukluk ve Gençlik</a>
+        <a href="#vahiy-donemi" class="hizli-erisim-btn">Vahiy Dönemi</a>
+        <a href="#medine-donemi" class="hizli-erisim-btn">Medine Dönemi</a>
+        <a href="#vefati" class="hizli-erisim-btn">Vefatı</a>
+        <a href="#veda-hutbesi" class="hizli-erisim-btn">Veda Hutbesi</a>
+    </div>
+
+    <hr style="border: none; border-bottom: 1px solid #eee; margin: 25px 0;">
+
+    <!-- 1. BÖLÜM -->
+    <h2 id="cocukluk-genclik">Peygamberimizin Çocukluk ve Gençlik Dönemi</h2>
+    <p>
+        Hz.Muhammed (s.a.v), 571 yılında Mekke'de Fil Vakası'ndan yaklaşık 50 gün sonra, Rebiülevvel ayının 12. gecesi Mekke ufkunda benzersiz bir nur doğdu. Babası Abdullah o daha doğmadan vefat ettiği için dünyaya yetim olarak gözlerini açtı. Dedesi Abdülmuttalib, torununun doğumu şerefine verdiği ziyafette ona "gökte ve yerde övülsün" temennisiyle Muhammed ismini koydu. Annesi Âmine, bu mahzun ama kutlu bebeğe bakarken kalbindeki büyük hüznü, onun yüzündeki tarif edilemez huzurla unutuyordu.<br><br>Mekke'nin ağır ve sıcak havası bebekler için uygun olmadığından, o dönem adet olduğu üzere küçük Muhammed, havası temiz ve dili duru olan çöldeki Beni Sad kabilesine, süt anne Halime'ye emanet edildi. Halime ve ailesi, bu yetim bebeği evlerine aldıkları ilk andan itibaren büyük bir bereketle karşılaştılar; kurak toprakları yeşerdi, hayvanlarının sütü çoğaldı. Küçük Muhammed, çölün hür havasında, berrak bir Arapça ve güçlü bir bünye ile büyüdü. Dört yıl süren bu dönemin ardından öz annesi Âmine'ye geri teslim edildi.<br><br>Henüz 6 yaşındayken, annesi Âmine ve sadık hizmetkarları Ümmü Eymen ile birlikte babasının Medine'deki kabrini ziyarete gittiler. Dönüş yolunda, Ebva denilen köyde annesi Âmine hastalandı ve vefat etti. Annesini de kaybeden küçük Muhammed, artık hem yetim hem öksüzdü. Onu Mekke'ye getiren Ümmü Eymen, dedesi Abdülmuttalib'e teslim etti. Dedesi, bu mahzun torununa gözü gibi baktı, onu kendi öz çocuklarından üstün tuttu. Ancak bu sığınak da uzun sürmedi; iki yıl sonra dedesi vefat ederken, sekiz yaşındaki Muhammed'i öz amcası Ebu Talib'e emanet etti.<br><br>Ebu Talib, maddi durumu çok iyi olmasa da yeğenine evinin ve kalbinin kapılarını sonuna kadar açtı. Yengesi Fatıma, ona kendi çocuklarından önce bakar, üstünü başını elleriyle temizlerdi. Sevgili Peygamberimiz amcasına yük olmamak için küçük yaşta Mekke koyunlarını otlatarak aile bütçesine katkıda bulunmaya başladı. 12 yaşına geldiğinde amcasıyla birlikte ilk kez Suriye'ye doğru giden bir ticaret kervanına katıldı. Bu yolculuk sırasında Busra denilen yerde, Rahip Bahira kervanı durdurdu. Genç Muhammed'in üzerindeki bulut gölgesini ve ağaç dallarının ona doğru eğildiğini fark eden Bahira, onun gelecekte gelecek olan son peygamber olduğunu anladı ve amcasına, "Bu çocuğu iyi koru, yahudiler ona zarar verebilir" diyerek uyardı.<br><br>Hz. Muhammed, Mekke'nin o dönemki karmaşık, adaletsiz ve ahlaki açıdan çökmüş ortamında adeta bir inci gibi parlıyordu. Asla putlara tapmıyor, içki içmiyor, yalan söylemiyor ve haksızlıklara tahammül edemiyordu. Yirmili yaşların başındayken, Mekke dışından gelen yabancıların mallarının yağmalanmasını engellemek, zayıfların haklarını korumak amacıyla kurulan Hilfü'l-Fudûl (Erdemliler Cemiyeti) adlı barış ve adalet hareketine katıldı. Hayatı boyunca bu cemiyetle gurur duyduğunu hep dile getirdi.<br><br>O, sadece dürüstlüğüyle değil, asil duruşuyla da herkesin saygısını kazanmıştı. Mekkeliler en değerli eşyalarını gözleri arkada kalmadan ona emanet eder, şehirde bir anlaşmazlık çıktığında hakemliğine başvururlardı. Bu yüzden kendisine daha peygamberlik gelmeden çok önce "Muhammedü'l-Emîn" (Güvenilir Muhammed) unvanı verildi. Nitekim 35 yaşındayken yapılan Kabe tamiratında, kutsal Hacerü'l-Esved taşını yerine koyma şerefi yüzünden kabileler birbirini öldürmek üzereyken, onun zekice ve adaletli hakemliği sayesinde büyük bir savaşın köşesinden dönüldü.<br><br>Mekke'nin asil, iffetli ve başarılı iş kadını olan Hz. Hatice, bu genç adamın ticaretteki dürüstlüğünü ve kervanının başındayken gösterdiği yüksek ahlakı duymuştu. Ona ticari ortaklık teklif etti. Şam seferi dönüşünde yardımcısı Meysere'den genç Muhammed'in mucizevi hallerini dinleyen Hz. Hatice, ona evlilik teklifinde bulundu. Bu evlilik gerçekleştiğinde Hz. Muhammed 25, Hz. Hatice ise 40 yaşındayken kurulan bu yuva, büyük bir sadakatle örüldü. Bu evlilikten Kasım, Abdullah, Zeynep, Rukiye, Ümmü Gülsüm ve Fatıma dünyaya geldi. Hz. Hatice, ona sadece bir eş değil, hayatının en zorlu dönemlerinde en büyük sırdaş ve destekçi oldu.
+    </p>
+    
+    <!-- 2. BÖLÜM -->
+    <h2 id="vahiy-donemi">Peygamberimizin Vahiy Dönemi</h2>
+    <p>
+        Sevgili Peygamberimiz (s.a.v.), otuzlu yaşlarının sonuna doğru ilerlerken Mekke’nin ahlaki çöküşü, adaletsizliği ve putperestlik inancı ruhunu iyice daraltmaya başlamıştı. İnsanlardan uzaklaşarak derin bir tefekküre dalma arzusu, onun iç dünyasını tamamen kapladı. Nübüvvetten (peygamberlikten) yaklaşık 6 ay önce, bu hazırlık sürecinin ilk evresi olan Sadık Rüyalar (Rüya-yı Sâdıka) dönemi başladı. Uykusunda gördüğü her rüya, sabahın aydınlığı gibi aynen ve apaçık gerçekleşiyordu.<br><br>Bu manevi halin ardından, her Ramazan ayında yanına biraz su ve kurutulmuş et alarak Mekke’ye yaklaşık 5 kilometre uzaklıkta bulunan Nur Dağı’ndaki Hira Mağarası’na çekilmeye başladı. İslam literatüründe bu inziva ve ibadet haline tahannüs veya uzlet denir. Genç Muhammed (s.a.v.), günlerce bu dar ve sessiz mağarada kalıyor; evrenin yaratılışını, Kabe’nin manevi aslı olan Hz. İbrahim’in Tevhid inancını düşünüyor ve kalbini gelecek olan o muazzam yüke, vahiyle gelecek olan ilahi kelama hazırlıyordu.<br><br>Takvimler 610 yılının Ramazan ayının 27. gecesini (Kadir Gecesi) gösterdiğinde, insanlık tarihinin akışını sonsuza dek değiştiren o büyük hadise gerçekleşti. Hira Mağarası’nda yalnız başına tefekkürde olan Hz. Muhammed'in (s.a.v.) karşısında aniden vahiy meleği Cebrail (a.s.) belirdi. Melek ona hitaben: "Oku! (Ikra')" dedi. Hz. Muhammed (s.a.v.) büyük bir ürperti ve korku içinde: "Ben okuma bilmem" cevabını verdi.<br><br>Cebrail (a.s.) onu kucaklayıp takati kesilinceye kadar sıktı ve tekrar: "Oku!" dedi. Peygamberimiz yine: "Ben okuma bilmem" dedi. Üçüncü kez aynı durum yaşandıktan sonra Cebrail (a.s.), Alak Suresi'nin ilk beş ayetini vahyetti: "Yaratan Rabbinin adıyla oku! O, insanı bir alaktan (embriyodan) yarattı. Oku! Kalemle yazmayı öğreten, insana bilmediğini bildiren Rabbin en büyük kerem sahibidir."<br><br>Gördüğü ve duyduğu bu muazzam hadisenin heyecanı ve korkusuyla Peygamberimizin kalbi küt küt atıyordu. Hira Dağı'ndan hemen inerek evine, eşi Hz. Hatice'nin yanına koştu. Titreyerek: "Beni örtün, beni örtün!" dedi. Bir süre dinlenip sakinleştikten sonra başından geçenleri sadık eşi Hz. Hatice'ye anlattı ve "Kendimden korktum" dedi. Mekke'nin en asil ve ferasetli kadını olan Hz. Hatice, ona tarihe geçecek şu muhteşem teselli cümleleriyle destek oldu: "Asla korkma! Allah'a yemin ederim ki O, seni hiçbir zaman utandırmaz. Çünkü sen akrabanı gözetirsin, işini görmekten aciz olanların yükünü taşırsın, fakire yardım edersin, misafiri ağırlarsın ve hak yolunda karşılaşılan musibetlerde insanlara destek olursun."<br><br>İlk vahyin ardından kervan hemen aynı hızla devam etmedi. Cebrail (a.s.) bir süreliğine gelmeyi kesti. Süresi hakkında farklı rivayetler olan bu döneme Fetret-i Vahiy denir. Bu dönemde Peygamberimiz büyük bir hüzne kapıldı, adeta "Acaba Rabbim bana darıldı mı veya ben bir hata mı yaptım?" endişesiyle tekrar Hira'ya gidip gelmeye başladı. Bu fetret dönemi, Peygamberimizin ruhunun ilk vahyin şokunu atlatması, sakinleşmesi ve vahye olan özleminin en üst noktaya ulaşması için ilahi bir hikmetle kurgulanmıştı.<br><br>Sessizlik, Müddessir Suresi'nin ilk ayetlerinin inmesiyle bozuldu: "Ey örtüsüne bürünen! Kalk ve artık uyar!" Bu ayetle birlikte artık "nebî" (haber alan) olan Hz. Muhammed (s.a.v.), "resûl" (insanları uyarmakla görevli elçi) olmuş ve 23 yıl sürecek olan vahiy dönemi bu şekilde başlamış olur.<br><br>Bu sözler, onun peygamberlik öncesindeki asil gençlik ve "El-Emin" (Güvenilir) hayatının en net şahidiydi. Hz. Hatice, olayın iç yüzünü tam anlamak için eşini alarak amcasının oğlu olan, Tevrat ve İncil'i iyi bilen bilge Hristiyan alimi Varaka bin Nevfel’e götürdü. Varaka, anlatılanları dinleyince büyük bir heyecanla şöyle dedi: "Sana gelen, Allah’ın Hz. Musa’ya gönderdiği Nâmûs’tur (Cebrail'dir). Ah, keşke senin kavminin seni yurdundan çıkaracağı günlerde genç olsaydım ve yaşasaydım!"
+    </p>
+    
+    <!-- 3. BÖLÜM -->
+    <h2 id="medine-donemi">Peygamberimizin Medine Dönemi</h2>
+    <p>
+        Mekke’de Müslümanlara yönelik baskı, zulüm ve boykotlar dayanılmaz bir boyuta ulaştığında, İslamiyet’in sesini duyuracağı yeni bir yurt ihtiyacı doğdu. Medineli (o dönemki adıyla Yesrib) bir grup Müslüman ile Akabe denilen mevkide yapılan bağlılık sözleşmelerinin (Akabe Biatları) ardından, Müslümanlar için hicret yolu açıldı. Müslümanlar kitleler halinde gizlice Medine’ye göç etmeye başladı.<br><br>En sonunda Mekke’nin müşrik liderleri Darü’n-Nedve’de toplanarak Peygamber Efendimiz’i (s.a.v.) tamamen ortadan kaldırma (suikast) kararı aldılar. Ancak ilahi vahiy durumu Hz. Muhammed’e (s.a.v.) bildirdi. Peygamberimiz, yatağına Hz. Ali’yi bırakarak en sadık dostu Hz. Ebubekir ile birlikte yola çıktı. Müşriklerin takibinden kurtulmak için Mekke’nin tersi istikametindeki Sevr Mağarası’na sığındılar. Üç gün boyunca bu mağarada kaldılar; mağaranın girişine bir örümceğin ağ örmesi ve bir güvercinin yuva yapması gibi ilahi mucizeler sayesinde müşriklerin aramasından kurtuldular. Çetin bir yolculuğun ardından Medine yakınlarındaki Kuba köyüne ulaştılar. Peygamberimiz burada İslam tarihinin ilk camisi olan Kuba Camii’ni inşa etti.<br><br>Peygamber Efendimiz (s.a.v.) Medine’ye girdiğinde, şehir halkı onu büyük bir coşku ve ilahilerle karşıladı. Herkes onu evinde misafir etmek istiyordu. Peygamberimiz, kimsenin kırılmaması için devesi Kasva’nın çökeceği yere en yakın eve misafir olacağını söyledi. Deve, boş bir arsaya çöktü ve Peygamberimiz o arsanın hemen yanındaki evde, Ebu Eyyûb el-Ensârî’nin evinde aylarca misafir kaldı. Devenin çöktüğü o boş arsaya ise hemen Mescid-i Nebevî (Peygamber Mescidi) inşa edildi. Bu mescid sadece bir ibadethane değil; devletin yönetildiği, eğitimlerin verildiği ve evsiz Müslümanların (Ashâb-ı Suffe) barındığı bir merkez haline geldi.<br><br>Medine döneminin temelini oluşturan üç büyük adım atıldı:<br><br>Muahat (Kardeşlik): Mekke’den her şeyini bırakıp gelen göçmenler (Muhacir) ile onlara kucak açan Medineli Müslümanlar (Ensar) arasında teker teker kardeşlik ilan edildi. Ensar, evini ve malını Muhacir kardeşleriyle yarı yarıya paylaştı.<br><br>Medine Sözleşmesi: Şehirde huzuru sağlamak adına Müslümanlar, Medineli müşrikler ve Yahudi kabileleri arasında tarihin ilk yazılı anayasalarından biri olan Medine Sözleşmesi imzalandı. Bu sözleşmeyle herkesin inanç özgürlüğü ve şehrin ortak savunulması güvence altına alındı.<br><br>Mekkelilerin Müslümanları rahat bırakmaması ve geride kalan mallarını yağmalaması üzerine, Medine döneminde İslam devletinin varlığını korumak adına büyük askeri mücadeleler başladı:<br><br>Bedir Savaşı (624): Müslümanlar ile Mekkeli müşrikler arasındaki ilk büyük savaştır. Müslümanlar sayıca çok az olmalarına rağmen (yaklaşık 313 kişi), büyük bir inanç ve stratejiyle kendilerinden üç kat güçlü olan müşrik ordusunu bozguna uğrattı. Bu zafer, İslam devletinin gücünü herkese kanıtladı.<br><br>Uhud Savaşı (625): Bedir'in intikamını almak isteyen Mekkeliler büyük bir ordusuyla geldi. Peygamberimiz, Uhud Dağı’nın stratejik bir geçidine 50 okçu yerleştirdi ve "Biz kazansak da kaybetsek de yerinizi terk etmeyin" talimatı verdi. Ancak savaşın kazanıldığını düşünen okçuların yerini terk etmesi sonucu, Halid bin Velid komutasındaki kervan arkadan saldırdı ve Müslümanlar ağır kayıplar verdi. Peygamberimizin sevgili amcası Hz. Hamza bu savaşta şehit düştü, Efendimizin ise dişi kırıldı. Bu savaş, itaatin önemini gösteren büyük bir ders oldu.<br><br>Hendek Savaşı (627): Müşrikler, çevre kabileleri de toplayarak İslam’ı tamamen yok etmek için Medine’ye yürüdü. İranlı bir Müslüman olan Selman-ı Farisi’nin teklifiyle, şehrin açık olan taraflarına derin hendekler kazıldı. Mekke süvarileri bu hendekleri geçemedi. Haftalar süren kuşatma, şiddetli bir fırtına ve ilahi yardım sayesinde müşrik ordusunun dağılmasıyla son buldu. Bu savaştan sonra müşrikler artık savunmaya çekilmek zorunda kaldı.<br><br>628 yılında yapılan Hudeybiye Barış Antlaşması ile Mekkeliler İslam devletini resmen hukuken tanımış oldu. Bu barış ortamında İslamiyet çok hızlı yayıldı. Ancak iki yıl sonra müşriklerin antlaşma şartlarını bozması üzerine, Peygamberimiz 10 bin kişilik muazzam bir orduyla Mekke’ye yürüdü.<br><br>Mekke’nin Fethi (630): Kan dökülmeden, büyük bir teslimiyetle Mekke fethedildi. Peygamber Efendimiz (s.a.v.), kendisine ve ashabına yıllarca işkence eden, onları yurtlarından süren Mekke halkına karşı büyük bir merhamet göstererek genel af ilan etti: "Bugün size kınama yoktur, hepiniz serbestsiniz" buyurdu. Kabe putlardan tamamen temizlendi ve Tevhid inancı tam manasıyla yerleşti.
+    </p>
+    
+    <!-- 4. BÖLÜM -->
+    <h2 id="vefati">Peygamberimizin Vefatı</h2> 
+    <p>
+        Veda Haccı ve Veda Hutbesi (632): Peygamberimiz, vefatından birkaç ay önce 100 bini aşkın Müslümanla birlikte son haccını gerçekleştirdi. Burada okuduğu Veda Hutbesi, tüm insanlığa bırakılmış evrensel bir insan hakları beyannamesidir. Can, mal ve namus kutsallığını vurguladı, ırkçılığı ayaklar altına aldı, kadınların haklarının korunmasını emretti ve faizi tamamen yasakladı.<br><br>Refîk-ı A'lâ'ya Yolculuk: Medine’ye döndükten bir süre sonra hastalanan Sevgili Peygamberimiz (s.a.v.), 8 Haziran 632 (12 Rebiülevvel 11) tarihinde, eşi Hz. Aişe’nin odasında, "Allahümme'r-Refîkayi'l-A'lâ" (Sonsuz yüce dosta gidiyorum) diyerek ruhunu teslim etti ve vefat ettiği yere, bugün Medine’deki Yeşil Kubbe’nin altındaki kabrine (Ravza-i Mutahhara) defnedildi.
+    </p>
+
+    <!-- VEDA HUTBESİ KUTUSU -->
+    <div class="sekil" id="veda-hutbesi">
+        <h2>Veda Hutbesi</h2>
+        <p>Ey insanlar! Sözümü iyi dinleyiniz.
+Bilmiyorum, belki bu seneden sonra sizinle burada ebedi
+olarak bir daha buluşamayacağım.
+Ey İnsanlar! Arefe günü nasıl mukaddes bir gün ise,
+Zilhicce ayı nasıl mukaddes bir ay ise, Mekke şehri nasıl
+mübarek bir şehir ise; canlarınız, mallarınız, ırzlarınız da
+öyle mukaddestir, her türlü saldırıdan emindir.
+Ashabım! Yarın Rabbinize kavuşacaksınız ve bugünkü
+her hal ve hareketinizden sorulacaksınız. Sakın benden
+sonra eski sapıklıklara dönüp de birbirinizi öldürmeyiniz.
+Bu vasiyetimi burada bulunanlar bulunmayanlara
+bildirsin. Olabilir ki bildirilen kimse, burada bulunup da
+işitenden daha iyi anlayarak muhafaza etmiş olur.
+Ashabım! Kimin yanında bir emanet varsa onu sahibine
+versin. Faizin her çeşidi kaldırılmıştır, ayağımın altındadır.
+Lakin borcunuzun aslını vermeniz gerekir. Ne zulmediniz
+ne de zulme uğrayınız. Allah'ın emriyle faizcilik artık
+yasaktır. Cahiliyetten kalma bu çirkin âdetin her türlüsü
+ayağımın altındadır. İlk kaldırdığım faiz de
+Abdulmuttalib'in oğlu Abbas'ın faizidir.
+Ashabım! Cahiliyet devrinde güdülen kan davaları da
+kaldırılmıştır. Kaldırdığım ilk kan davası da
+Abdulmuttalib'in torunu Rabia'nın kan davasıdır.Ey İnsanlar! Bugün şeytan sizin şu topraklarınızda
+yeniden tesir ve hakimiyet kurma gücünü ebedi surette
+kaybetmiştir. Fakat bu kaldırdığım şeyler haricinde
+küçük gördüğünüz işlerde ona uyarsanız bu da onu
+memnun edecektir. Dininizi korumak için bunlardan
+sakınınız.
+Ey İnsanlar! Kadınların haklarını gözetmenizi ve bu
+hususta Allah' tan korkmanızı tavsiye ederim. Siz
+kadınları Allah'ın emaneti olarak aldınız; onların
+namuslarını ve iffetlerini Allah adına söz vererek helal
+edindiniz. Sizin kadınlar üzerinde, onların da sizin
+üzerinizde hakları vardır. Sizin kadınlar üzerindeki
+hakkınız; onların aile yuvasını, hoşlanmadığınız hiçbir
+kimseye çiğnetmemeleridir. Kadınların da sizin
+üzerinizdeki hakları ; örfe göre her türlü yiyecek ve
+giyeceklerini temin etmenizdir.
+Ey Mü'minler! Size iki emanet bırakıyorum ki onlara
+sımsıkı sarıldıkça yolunuzu hiçbir zaman şaşırmazsınız.
+Bu emanetler Allah'ın kitabı Kur’an-ı Kerim ve
+Peygamberin sünnetidir.
+Ey Mü'minler! Sözümü iyi dinleyiniz ve iyi muhafaza
+ediniz! Müslüman Müslümanın kardeşidir ve bütün
+Müslümanlar kardeştir. Din kardeşinize ait olan
+herhangi bir hakka tecavüz helal değildir. Ancak gönül
+hoşluğuyla verilen başka.Ashabım! Kendinize de zulmetmeyiniz. Nefsinizin de
+üzerinizde hakkı vardır.
+Ey İnsanlar! Rabbiniz birdir. Babanız da birdir. Hepiniz
+Adem’in çocuklarısınız, Adem ise topraktandır. Arabın
+Arap olmayana, Arap olmayanın da Arap üzerinde
+üstünlüğü olmadığı gibi; kırmızı tenlinin siyah üzerinde,
+siyahında kırmızı tenli üzerinde bir üstünlüğü yoktur.
+Üstünlük ancak takvadadır. Allah katında en kıymetli
+olanınız O’ndan en çok korkanınızdır.
+Ey insanlar! Cenab-ı Hak her hak sahibine hakkını
+vermiştir. Herkes kendi işlediği suçtan sorumludur.
+Baba oğlunun, oğlu da babasının suçundan sorumlu
+değildir.
+Dikkat ediniz! Şu dört şeyi kesinlikle yapmayınız: Allah’a
+hiçbir şeyi ortak koşmayınız. Allah’ın haram ve
+dokunulmaz kıldığı cana haksız yere kıymayınız. Zina
+etmeyiniz. Hırsızlık yapmayınız.
+Ey insanlar! Yarın beni sizden soracaklar. Ne dersiniz?
+Ashab-ı Kiram cevap verdi:
+"Allah'ın risâletini tebliğ ettin; risalet görevini yerine
+getirdin, bize vasiyyet ve nasihatte bulundun diye
+şehadet ederiz."
+Rasûlullah şehadet parmağını göğe kaldırarak üç kez
+"Şahit ol! ya Rab!
+Şahit ol! ya Rab!
+Şahit ol! ya Rab!"</p>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}İletişim - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    .iletisim-karti {
+        position: relative;
+    height: auto;
+    min-height: 590px;
+    width: 80%;
+    max-width: 900px;
+    margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
+    text-align: left;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    }
+
+    /* Sayfa Başlığı */
+    .iletisim-baslik {
+        color: #2c251e;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    /* Alt Açıklama Metni */
+    .iletisim-aciklama {
+        color: #000000;
+        font-size: 1rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto 30px auto;
+    }
+
+    /* İkon ve Kart Grubu */
+    .ikon-grubu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    /* İkon Link Kutuları */
+    .ikon-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background-color: #f7f4f0;
+        border: 1px solid #e6dec3;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    .ikon-link:hover {
+        transform: translateY(-5px);
+        background-color: #614d37;
+        box-shadow: 0 5px 15px rgba(97, 77, 55, 0.3);
+        border-color: #614d37;
+    }
+
+    /* İkon Görselleri */
+    .ikon-link img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        transition: filter 0.3s ease;
+        margin-bottom: 8px;
+    }
+
+    /* Hover Durumunda Görseller ve Yazılar */
+    .ikon-link:hover img {
+        filter: brightness(0) invert(1);
+    }
+
+    .ikon-etiket {
+        font-size: 0.85rem;
+        color: #4a3e31;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .ikon-link:hover .ikon-etiket {
+        color: #ffffff;
+    }
+
+    /* Bilgi İpuçları / Notlar */
+    .iletisim-not {
+        margin-top: 35px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+        color: #888;
+        font-size: 0.9rem;
+    }
+
+    /* Mobil Ekran Uyumu */
+    @media (max-width: 768px) {
+        .iletisim-karti {
+            margin-top: 140px;
+            padding: 30px 15px;
+            width: 90%;
+        }
+        .ikon-grubu {
+            gap: 12px;
+        }
+        .ikon-link {
+            width: 80px;
+            height: 80px;
+        }
+        .ikon-link img {
+            width: 26px;
+            height: 26px;
+        }
+        .ikon-etiket {
+            font-size: 0.75rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="iletisim-karti">
+    
+    <p class="iletisim-aciklama">
+        Sorularınız, önerileriniz veya iş birliği talepleriniz için aşağıdaki kanallardan bize ulaşabilir ve sosyal medya hesaplarımızı takip edebilirsiniz.
+    </p>
+
+    <div class="ikon-grubu">
+        <a href="http://www.youtube.com/@Vatan_u%C4%9Fruna7" class="ikon-link" title="YouTube" target="_blank">
+            <img src="/static/yt.png" alt="YouTube">
+            <span class="ikon-etiket">YouTube</span>
+        </a>
+        
+        <a href="https://www.instagram.com/bilgi.sayarisleri?igsh=aWczcjhiOTJqc3Yz" class="ikon-link" title="Instagram" target="_blank">
+            <img src="/static/instagram.png" alt="Instagram">
+            <span class="ikon-etiket">Instagram</span>
+        </a>
+        
+        <a href="https://pin.it/3YgBEqsUv" class="ikon-link" title="Pinterest" target="_blank">
+            <img src="/static/pin.png" alt="Pinterest">
+            <span class="ikon-etiket">Pinterest</span>
+        </a>
+
+        <a href="tel:905357178501" class="ikon-link" title="Telefon">
+            <img src="/static/tel.png" alt="Telefon">
+            <span class="ikon-etiket">Telefon</span>
+        </a>
+        
+        <a href="mailto:oznurhasar7@gmail.com" class="ikon-link" title="E-Posta">
+            <img src="/static/posta.png" alt="E-Posta">
+            <span class="ikon-etiket">E-Posta</span>
+        </a>
+    </div>
+
+    <div class="iletisim-not">
+        <p>E-postalarınıza en geç 24 saat içerisinde dönüş yapılmaktadır.</p>
+    </div>
+</div>
+{% endblock %}

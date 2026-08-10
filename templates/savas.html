@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block title %}İslam Tarihindeki Savaşlar (Gazve ve Seriyyeler) - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+   
+    /* TANIM VE FARK KUTULARI */
+
+
+
+    .ortaa{
+        position: relative;
+    height: auto;
+    min-height: 590px;
+    width: 80%;
+    max-width: 900px;
+    margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
+    text-align: left;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    }
+    .definition-container {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .def-card {
+        background: #fff6e2;
+        border-radius: 10px;
+        padding: 22px 25px;
+        border: 1px solid #e0d0b8;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .def-card.gazve-def { border-left: 5px solid #2e7d32; }
+    .def-card.seriyye-def { border-left: 5px solid #1565c0; }
+
+    .def-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .gazve-def h3 { color: #2e7d32; }
+    .seriyye-def h3 { color: #1565c0; }
+
+    .def-card p {
+        color: #444;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* SEFER LİSTESİ / IZGARA */
+    .sefer-container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+    }
+
+    .sefer-card {
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #e2e2e2;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sefer-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .card-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .badge-gazve { background-color: #e8f5e9; color: #2e7d32; }
+    .badge-seriyye { background-color: #e3f2fd; color: #1565c0; }
+
+    .sefer-date {
+        color: #888;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .sefer-card h4 {
+        color: #000000;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .sefer-card p {
+        color: #000000;
+        line-height: 1.6;
+        font-size: 1rem;
+        flex-grow: 1;
+        margin-bottom: 15px;
+    }
+
+    /* HİKMET VE MERHAMET VURGUSU KUTUSU */
+    .highlight-moment {
+        background-color: #faf6f0;
+        border-radius: 8px;
+        padding: 12px 15px;
+        border-left: 3px solid #2e251a;
+        font-size: 1rem;
+        color: #302922;
+        line-height: 1.5;
+        font-style: italic;
+    }
+
+    .highlight-moment span {
+        font-weight: bold;
+        font-style: normal;
+        display: block;
+        margin-bottom: 3px;
+        color: #016e58;
+    }
+
+    @media(max-width: 768px) {
+        .hero-section {
+            margin-top: 210px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+<!-- TANIMLAR -->
+
+
+<div class="ortaa">
+<div class="definition-container">
+    <div class="def-card gazve-def">
+        <h3>Gazve Nedir?</h3>
+        <p>Bizzat Efendimizin (s.a.v.) ordunun başında bulunduğu, komuta ettiği seferlerdir. Hz. Peygamber gazvelerde sadece bir komutan değil; askerine moral veren, merhameti ve adaleti bizzat yaşatan bir rehberdi.</p>
+    </div>
+    <div class="def-card seriyye-def">
+        <h3>Seriyye Nedir?</h3>
+        <p>Efendimizin (s.a.v.) bizzat katılmayıp ashabına güvenerek yetkilendirdiği birliklerdir. Bu görevler, sahabelerin cesaretini, sadakatini ve sorumluluk bilincini pekiştiren birer güven nişanesidir.</p>
+    </div>
+</div>
+
+<div class="sefer-container">
+
+    <!-- Bedir -->
+    <div class="sefer-card">
+        <div class="card-header">
+            <span class="card-badge badge-gazve">Gazve</span>
+            <span class="sefer-date">Hicretin 2. Yılı (624)</span>
+        </div>
+        <h4>Bedir Gazvesi</h4>
+        <p>313 inançlı yüreğin, devasa bir orduya karşı durduğu ilk büyük imtihan. Gece boyu gözyaşlarıyla dua eden Efendimizin (s.a.v.) yakarışlarıyla şekillenen zafer, sadece bir askerî başarı değil, imanın hezimete galip gelişidir.</p>
+        <div class="highlight-moment">
+            <span>Merhamet & İnsanlık Timsali:</span>
+            "Esirlere kendi yediğinizden yedirin" emriyle Müslümanlar sıcak ekmeklerini esirlere vermiş, okuma-yazma öğreten esirleri hürriyetlerine kavuşturarak savaş tarihine eşsiz bir ahlak dersi kazandırmışlardır.
+        </div>
+    </div>
+
+    <!-- Uhud -->
+    <div class="sefer-card">
+        <div class="card-header">
+            <span class="card-badge badge-gazve">Gazve</span>
+            <span class="sefer-date">Hicretin 3. Yılı (625)</span>
+        </div>
+        <h4>Uhud Gazvesi</h4>
+        <p>Sadakat ve emre itaatin sınandığı, hüznün ve sadakatin harmanlandığı müstesna bir dağ... Şehitlerin serdarı Hz. Hamza'nın ve 70 mübarek sahabenin toprağa düştüğü, Müslümanların derin dersler çıkardığı tarihi an.</p>
+        <div class="highlight-moment">
+            <span>Peygamberî Zirve:</span>
+            Mübarek yüzü yaralandığında dahi beddua etmeyip, "Allah'ım! Kavmimi bağışla, çünkü onlar ne yaptıklarını bilmiyorlar" diyerek insanlığa merhamet ve bağışlama dersi vermiştir.
+        </div>
+    </div>
+
+    <!-- Hendek -->
+    <div class="sefer-card">
+        <div class="card-header">
+            <span class="card-badge badge-gazve">Gazve</span>
+            <span class="sefer-date">Hicretin 5. Yılı (627)</span>
+        </div>
+        <h4>Hendek Gazvesi (Ahzâb)</h4>
+        <p>Günlerce süren kuşatma, dondurucu soğuklar ve kıtlık... Medine'nin etrafında açlıkla hendek kazan sahabeler ve onlarla birlikte taş bağlayıp kazma vuran bir Peygamber. Sabrın ve istişarenin büyük zaferi.</p>
+        <div class="highlight-moment">
+            <span>Omuz Omuza Bir Lider:</span>
+            Efendimiz (s.a.v.) çadırında oturup emretmedi; sahabeleriyle toprak taşıdı, kayaları kırarken ümit aşıladı ve ashabının çektiği her çileyi bizzat bağrında yaşadı.
+        </div>
+    </div>
+
+    <!-- Mute -->
+    <div class="sefer-card">
+        <div class="card-header">
+            <span class="card-badge badge-seriyye">Seriyye</span>
+            <span class="sefer-date">Hicretin 8. Yılı (629)</span>
+        </div>
+        <h4>Mute Seriyyesi</h4>
+        <p>3 bin kişilik kahraman birliğin, 100 bin kişilik dev Bizans ordusu karşısındaki destansı direnişi. Sırayla şehit düşen sevdalı komutanlar (Zeyd, Cafer, Abdullah) ve bayrağı devralıp zekasıyla orduyu kurtaran Halid b. Velid.</p>
+        <div class="highlight-moment">
+            <span>Gözyaşı ve Tebşirat:</span>
+            Efendimiz (s.a.v.) Medine'de minberden, henüz haber gelmeden gözyaşları içinde komutanların tek tek şehadetini ashabına haber vermiş, onların cennetteki makamlarını müjdelemiştir.
+        </div>
+    </div>
+
+    <!-- Mekke'nin Fethi -->
+    <div class="sefer-card">
+        <div class="card-header">
+            <span class="card-badge badge-gazve">Gazve</span>
+            <span class="sefer-date">Hicretin 8. Yılı (630)</span>
+        </div>
+        <h4>Mekke'nin Fethi</h4>
+        <p>Yıllarca eziyet gördükleri, doğup büyüdükleri topraklardan sürgün edildikleri şehre geri dönüş. Ne bir gurur, ne bir intikam hırsı... Deve üzerinde başı şükürden semere değecek kadar eğik giren bir Nebi.</p>
+        <div class="highlight-moment">
+            <span>"Bugün Size Kınama Yok":</span>
+            Korkuyla bekleyen Mekkelilere "Gidiniz, hepiniz serbestsiniz!" diyerek tarihin en büyük affını ilan etmiş ve kalpleri silahla değil, merhametle fethetmiştir.
+        </div>
+    </div>
+
+    <!-- Huneyn -->
+    <div class="sefer-card">
+        <div class="card-header">
+            <span class="card-badge badge-gazve">Gazve</span>
+            <span class="sefer-date">Hicretin 8. Yılı (630)</span>
+        </div>
+        <h4>Huneyn Gazvesi</h4>
+        <p>12 bin kişilik büyük ordunun sayıca çokluğuna güvenmesinin getirdiği ilk bocalama... Pusuda dağılan saflar karşısında, atını düşmanın üzerine tek başına sürecek kadar gözü pek bir Peygamber cesareti.</p>
+        <div class="highlight-moment">
+            <span>Sarsılmaz Cesaret:</span>
+            Herkesin gerilediği anlarda Efendimiz (s.a.v.) "Ben Peygamberim, yalan yok! Ben Abdülmuttalib'in oğluyum!" diyerek tek başına kayalık gibi durmuş ve ordunun yeniden toparlanmasını sağlamıştır.
+        </div>
+    </div>
+
+    <!-- Tebük -->
+    <div class="sefer-card">
+        <div class="card-header">
+            <span class="card-badge badge-gazve">Gazve</span>
+            <span class="sefer-date">Hicretin 9. Yılı (631)</span>
+        </div>
+        <h4>Tebük Gazvesi (Zorluk Seferi)</h4>
+        <p>Aşırı sıcaklar, kıtlık ve meyvelerin devşirilme zamanı... Dünya nimetleri ile Peygamber daveti arasında kalan yüreklerin imtihanı ("Ceyşü'l-Usre" / Zorluk Ordusu). Sadakatin ve cömertliğin en üst seviyesi.</p>
+        <div class="highlight-moment">
+            <span>Fedakarlık Yarışı:</span>
+            Hz. Ebubekir evinde ne varsa hepsini getirdiğinde, "Aileni ne bıraktın?" sorusuna "Allah ve Resulünü" cevabını vererek adını tarihe altın harflerle yazdırmıştır.
+        </div>
+    </div>
+
+    <!-- Bi'r-i Maûne -->
+    <div class="sefer-card">
+        <div class="card-header">
+            <span class="card-badge badge-seriyye">Seriyye</span>
+            <span class="sefer-date">Hicretin 4. Yılı (625)</span>
+        </div>
+        <h4>Bi'r-i Maûne Faciası</h4>
+        <p>İslam'ı öğretmek üzere samimiyetle yola çıkan 70 Kur'an hafızının, kurulan kalleşçe bir tuzakla şehit edilmesi. Tarihin gördüğü en acı ve hüzünlü seriyyelerden biri.</p>
+        <div class="highlight-moment">
+            <span>Peygamberin Derin Hüznü:</span>
+            Efendimiz (s.a.v.) hayatı boyunca hiç bir olaya bu kadar üzülmemiş, Kur'an sevdalısı genç ashapları için tam bir ay boyunca sabah namazlarında dua ve hüzünle gözyaşı dökmüştür.
+        </div>
+    </div>
+
+</div></div>
+{% endblock %}

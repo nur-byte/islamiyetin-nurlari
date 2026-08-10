@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+
+{% block title %}Namaz Kılınışları - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        background-color: rgb(203, 203, 203);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Ana İçerik Kartı */
+    .ortaa {
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        max-width: 900px;
+        margin: 220px auto 60px auto;
+        text-align: left;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        color: #1c1c1c;
+        text-align: center;
+        font-size: 1.8rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-bottom: 20px;
+    }
+
+    /* Hızlı Erişim Sekmeleri (Menü) */
+    .hizli-erisim-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    .hizli-erisim-btn {
+        background-color: #f7f4f0;
+        color: #4a3f35 !important;
+        padding: 8px 16px;
+        text-decoration: none !important;
+        border-radius: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        font-size: 0.95rem !important;
+        border: 1px solid #ccc;
+        transition: all 0.3s ease;
+    }
+
+    .hizli-erisim-btn:hover {
+        background-color: #614d37;
+        color: #ffffff !important;
+        border-color: #614d37;
+    }
+
+    /* Bölüm Başlıkları (H2 ve H3) */
+    .ortaa h2 {
+        font-size: 1.2rem;
+        color: #ffffff;
+        background-color: #614d37;
+        width: fit-content;
+        padding: 10px 15px;
+        border-radius: 6px;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        scroll-margin-top: 130px; /* Sabit menü offset ayarı */
+    }
+
+    .ortaa h3 {
+        font-size: 1.2rem;
+        color: #2c251e;
+        border-bottom: 2px solid #614d37;
+        padding-bottom: 5px;
+        margin-top: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        scroll-margin-top: 130px;
+    }
+
+    p {
+        margin-left: 5px;
+        text-align: justify;
+        font-size: 1rem;
+        line-height: 1.6;
+        letter-spacing: 0.5px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #2c2c2c;
+    }
+
+    /* Adım Kutuları ve İpuçları */
+    .adim-kutusu {
+        background-color: #fbfbfb;
+        border-left: 4px solid #614d37;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .bilgi-kutusu {
+        background-color: #eef7ff;
+        border-left: 4px solid #016e58;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+
+        font-size: 1rem;
+    }
+
+    /* Liste Düzeni */
+    .ortaa ul, .ortaa ol {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        padding-left: 25px;
+    }
+
+    .ortaa li {
+        margin-bottom: 8px;
+    }
+
+    /* Tablo Düzeni (Namaz Rekatları İçin) */
+    .rekat-tablosu {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .rekat-tablosu th, .rekat-tablosu td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .rekat-tablosu th {
+        background-color: #614d37;
+        color: white;
+    }
+
+    .rekat-tablosu tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Responsive Uyum */
+    @media (max-width: 768px) {
+        .ortaa {
+            width: 92%;
+            padding: 15px;
+            margin-top: 230px;
+        }
+        h1 { font-size: 22px; }
+        p, .ortaa ul, .ortaa ol { font-size: 16px; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ortaa">
+   
+    <h1>- Hanefi Mezhebine Göre Namaz Kılınışı -</h1>
+
+    <!-- Hızlı Erişim Butonları -->
+    <div class="hizli-erisim-container">
+        <a href="#rekat-ozeti" class="hizli-erisim-btn">Rekat Tablosu</a>
+        <a href="#temel-dualar" class="hizli-erisim-btn">Okunan Dualar</a>
+        <a href="#sabah-namazi" class="hizli-erisim-btn">Sabah</a>
+        <a href="#ogle-namazi" class="hizli-erisim-btn">Öğle</a>
+        <a href="#ikindi-namazi" class="hizli-erisim-btn">İkindi</a>
+        <a href="#aksam-namazi" class="hizli-erisim-btn">Akşam</a>
+        <a href="#yatsi-namazi" class="hizli-erisim-btn">Yatsı & Vitir</a>
+    </div>
+
+    <hr style="border: none; border-bottom: 1px solid #ddd; margin: 20px 0;">
+
+    <div class="bilgi-kutusu">
+        <strong>Önemli Bilgi (Hanefi Mezhebine Göre Erkek ve Kadın Farkları):</strong><br>
+        • <strong>Tekbir:</strong> Erkekler ellerini başparmaklar kulak memesine değecek kadar kaldırır. Kadınlar ellerini göğüs hizasına kadar kaldırır.<br>
+        • <strong>Kıyamda El Bağlama:</strong> Erkekler göbek altında sağ eli sol bileğe halka yaparak bağlar. Kadınlar ellerini göğüs üzerinde sağ el sol elin üstünde olacak şekilde koyar.<br>
+        • <strong>Rükû:</strong> Erkekler sırtı dümdüz tutar ve dizleri dikleştirir. Kadınlar hafifçe öne eğilir, dizlerini kırmadan bükük tutarlar.<br>
+        • <strong>Secde:</strong> Erkekler dirseklerini yere değdirmez ve kollarını yanlara açar. Kadınlar dirseklerini yere serer ve vücutlarını toplu tutar.<br>
+        • <strong>Oturuş (Kade):</strong> Erkekler sol ayağını yatırıp üzerine oturur, sağ ayağı dik tutar. Kadınlar her iki ayağını da sağ tarafa yatırarak otururlar (Teverrük).
+    </div>
+
+    <!-- REKAT TABLOSU -->
+    <h2 id="rekat-ozeti">Günlük 5 Vakit Namaz Rekat Özet Tablosu</h2>
+    <table class="rekat-tablosu">
+        <thead>
+            <tr>
+                <th>Vakit</th>
+                <th>İlk Sünnet</th>
+                <th>Farz</th>
+                <th>Son Sünnet</th>
+                <th>Vitir</th>
+                <th>Toplam</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Sabah</strong></td>
+                <td>2 Rekat</td>
+                <td>2 Rekat</td>
+                <td>-</td>
+                <td>-</td>
+                <td><strong>4 Rekat</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Öğle</strong></td>
+                <td>4 Rekat</td>
+                <td>4 Rekat</td>
+                <td>2 Rekat</td>
+                <td>-</td>
+                <td><strong>10 Rekat</strong></td>
+            </tr>
+            <tr>
+                <td><strong>İkindi</strong></td>
+                <td>4 Rekat (Geyri Müekked)</td>
+                <td>4 Rekat</td>
+                <td>-</td>
+                <td>-</td>
+                <td><strong>8 Rekat</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Akşam</strong></td>
+                <td>-</td>
+                <td>3 Rekat</td>
+                <td>2 Rekat</td>
+                <td>-</td>
+                <td><strong>5 Rekat</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Yatsı</strong></td>
+                <td>4 Rekat (Geyri Müekked)</td>
+                <td>4 Rekat</td>
+                <td>2 Rekat</td>
+                <td>3 Rekat (Vacip)</td>
+                <td><strong>13 Rekat</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- DUALAR VE SIRALAMALARI -->
+    <h2 id="temel-dualar">Namazda Okunan Sıralı Dualar ve Zikirler</h2>
+    <div class="adim-kutusu">
+        <p><strong>1. İftitah Tekbiri:</strong> "Allâhu Akbar"</p>
+        <p><strong>2. Sübhâneke:</strong> "Sübhânekellâhumme ve bi hamdike ve tebârakesmuke ve teâlâ cedduke (farzlarda okunmaz, cenazede eklenir: ve cellâ senâuk) ve lâ ilâhe ğayruk."</p>
+        <p><strong>3. Eûzü-Besmele:</strong> "Eûzü billâhi mine’ş-şeytânir-racîm. Bismillâhir-rahmânir-rahîm."</p>
+        <p><strong>4. Fâtiha Suresi:</strong> Okunduktan sonra sessizce <em>"Âmîn"</em> denir.</p>
+        <p><strong>5. Zammı Sure:</strong> (Örn. İhlas, Felak, Nas veya en az 3 kısa ayet/1 uzun ayet).</p>
+        <p><strong>6. Rükû Zikri:</strong> 3 defa <em>"Subhâne Rabbiyel-Azîm"</em> denir. Rükûdan kalkarken <em>"Semi'allâhu limen hamideh"</em>, doğrulunca <em>"Rabbena lekel-hamd"</em> denir.</p>
+        <p><strong>7. Secde Zikri:</strong> 3 defa <em>"Subhâne Rabbiyel-A'lâ"</em> denir.</p>
+        <p><strong>8. Ettehiyyâtü (Oturuşlarda):</strong> "Ettehiyyâtu lillâhi ves-salevâtu vet-tayyibâtu. Es-selâmu 'aleyke eyyuhen-nebiyyu ve rahmetullâhi ve berakâtuh. Es-selâmu 'aleynâ ve 'alâ 'ibâdillâhis-sâlihîn. Eşhedu en lâ ilâhe illallâh ve eşhedu enne Muhammeden 'abduhû ve rasûluh."</p>
+        <p><strong>9. Salli-Bârik Duaları (Son Oturuşta):</strong> "Allâhumme salli 'alâ Muhammedin ve 'alâ âli Muhammedin kemâ salleyte 'alâ İbrâhîme ve 'alâ âli İbrâhîm, inneke hamîdun mecîd. Allâhumme bârik 'alâ Muhammedin ve 'alâ âli Muhammedin kemâ bârakte 'alâ İbrâhîme ve 'alâ âli İbrâhîm, inneke hamîdun mecîd."</p>
+        <p><strong>10. Rabbênâ Duaları:</strong> "Rabbênâ âtinâ fid-dünyâ haseneten ve fil-âhirati haseneten ve qinâ 'azâben-nâr. Rabbênâğfirlî ve li-vâlideyye ve lil-mu'minîne yevme yeqûmul-hisâb."</p>
+        <p><strong>11. Selâm:</strong> Önce sağa sonra sola dönerek <em>"Es-selâmu 'aleykum ve rahmetullâh"</em> denir.</p>
+    </div>
+
+    <!-- 1. SABAH NAMAZI -->
+    <h2 id="sabah-namazi">1. Sabah Namazı Kılınışı (4 Rekat)</h2>
+    
+    <h3>2 Rekat Sünnet</h3>
+    <p><strong>1. Rekat:</strong> Niyet edilir ("Niyet ettim Allah rızası için bugünkü Sabah namazının sünnetini kılmaya"). İftitah tekbiri "Allâhu Akbar" diyerek eller kaldırılır ve bağlanır. Sırasıyla; Sübhâneke, Eûzü-Besmele, Fâtiha ve Zammı Sure okunur. "Allâhu Akbar" diyerek rükûya gidilir, 3 defa "Subhâne Rabbiyel-Azîm" denir. "Semi'allâhu limen hamideh" denilerek doğrulunur, "Rabbena lekel-hamd" denir. "Allâhu Akbar" ile secdeye gidilir (3 defa "Subhâne Rabbiyel-A'lâ"), "Allâhu Akbar" ile oturulur, tekrar "Allâhu Akbar" ile ikinci secdeye gidilir (3 defa "Subhâne Rabbiyel-A'lâ"). Doğrularak 2. rekata kalkılır.</p>
+    <p><strong>2. Rekat:</strong> Sadece Besmele çekilir, Fâtiha ve Zammı Sure okunur. Rükû ve secdeler ilk rekat gibi yapılır. İkinci secdeden sonra oturulur (Kade-i Âhire). Sırasıyla; Ettehiyyâtü, Salli-Bârik ve Rabbênâ duaları okunur. Önce sağa sonra sola "Es-selâmu 'aleykum ve rahmetullâh" diyerek selam verilir.</p>
+
+    <h3>2 Rekat Farz</h3>
+    <p>Erkekler farza başlamadan önce Kamet getirir. Sünnetin kılınışı ile tamamen aynıdır. Yalnızca niyette "Sabah namazının farzına" diye niyet edilir.</p>
+
+    <!-- 2. ÖĞLE NAMAZI -->
+    <h2 id="ogle-namazi">2. Öğle Namazı Kılınışı (10 Rekat)</h2>
+    <p><strong>• 4 Rekat İlk Sünnet:</strong> 1. ve 2. rekatlar sabah namazının sünneti gibi kılınır. 2. rekatın secdesinden sonra ilk oturuşta (İlk Kade) <u>sadece Ettehiyyâtü</u> okunur ve ayağa kalkılır. 3. rekatta Besmele, Fâtiha, Zammı sure okunur. 4. rekatta Besmele, Fâtiha, Zammı sure okunur. Son oturuşta Ettehiyyâtü, Salli-Bârik, Rabbênâ okunup selam verilir.</p>
+    <p><strong>• 4 Rekat Farz:</strong> Kamet getirilir. İlk 2 rekat sünnet gibi kılınır. 2. rekat oturuşunda <u>sadece Ettehiyyâtü</u> okunur. 3. ve 4. rekatlarda Fâtiha'dan sonra Zammı Sure OKUNMAZ, doğrudan rükûya gidilir. Son oturuşta dualar okunup selam verilir.</p>
+    <p><strong>• 2 Rekat Son Sünnet:</strong> Sabah namazının 2 rekat sünneti gibi kılınır.</p>
+
+    <!-- 3. İKİNDİ NAMAZI -->
+    <h2 id="ikindi-namazi">3. İkindi Namazı Kılınışı (8 Rekat)</h2>
+    <p><strong>• 4 Rekat Sünnet (Geyri Müekked):</strong> Öğle sünnetinden farkı şudur: 2. rekat oturuşunda Ettehiyyâtü'den sonra <u>Salli-Bârik duaları da okunur</u>. 3. rekata kalkıldığında Sübhâneke ile başlanır ve Eûzü-Besmele çekilir. Diğer adımlar aynıdır.</p>
+    <p><strong>• 4 Rekat Farz:</strong> Kamet getirilir. Öğle namazının 4 rekat farzı ile birebir aynı kılınır.</p>
+
+    <!-- 4. AKŞAM NAMAZI -->
+    <h2 id="aksam-namazi">4. Akşam Namazı Kılınışı (5 Rekat)</h2>
+    <p><strong>• 3 Rekat Farz:</strong> Önce Farz kılınır. 1. ve 2. rekatlar aynen kılınır. 2. rekat oturuşunda <u>sadece Ettehiyyâtü</u> okunur ve 3. rekata kalkılır. 3. rekatta Besmele ve sadece Fâtiha okunur (Zammı sure okunmaz). Rükû ve secdelerden sonra son oturuş yapılır, tüm dualar okunarak selam verilir.</p>
+    <p><strong>• 2 Rekat Son Sünnet:</strong> Sabah namazının sünneti gibi 2 rekat olarak kılınır.</p>
+
+    <!-- 5. YATSI VE VİTİR NAMAZI -->
+    <h2 id="yatsi-namazi">5. Yatsı Namazı ve Vitir Namazı (13 Rekat)</h2>
+    <p><strong>• 4 Rekat İlk Sünnet:</strong> İkindi namazının 4 rekat sünneti ile birebir aynı kılınır (2. oturuşta Salli-Bârik okunur, 3. rekat Sübhâneke ile başlar).</p>
+    <p><strong>• 4 Rekat Farz:</strong> Öğle ve İkindi namazının farzı gibi kılınır.</p>
+    <p><strong>• 2 Rekat Son Sünnet:</strong> Sabah namazının sünneti gibi kılınır.</p>
+
+    <h3>3 Rekat Vitir Namazı (Vacip)</h3>
+    <div class="adim-kutusu">
+        <p><strong>1. Rekat:</strong> Niyet edilir ("Niyet ettim Allah rızası için bugünkü Vitir namazını kılmaya"). Sübhâneke, Eûzü-Besmele, Fâtiha ve Zammı sure okunup rükû ve secdeler yapılır.</p>
+        <p><strong>2. Rekat:</strong> Besmele, Fâtiha ve Zammı sure okunur. Secdeden sonra oturulur, <u>sadece Ettehiyyâtü</u> okunup 3. rekata kalkılır.</p>
+        <p><strong>3. Rekat:</strong> Besmele, Fâtiha ve Zammı sure okunur. Sure bittikten sonra eller rükûya gitmeden önce kaldırılır ve <strong>"Allâhu Akbar"</strong> diyerek Tekbir alınır. Eller tekrar bağlanır ve <strong>Kunut Duaları</strong> okunur:</p>
+        <p><em>"Allâhumme innâ neste'înuke ve nestagfiruke ve nestehdîk..."</em><br>
+        <em>"Allâhumme iyyâke na'budu ve leke nusallî ve nescud..."</em></p>
+        <p>Kunut duaları bittikten sonra "Allâhu Akbar" denilerek rükûya gidilir. Secdeler yapılıp son oturuşta Ettehiyyâtü, Salli-Bârik ve Rabbênâ duaları okunarak selam verilir.</p>
+    </div>
+
+</div>
+{% endblock %}

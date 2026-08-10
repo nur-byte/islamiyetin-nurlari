@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}Dualar ve Zikirler - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        background-color: rgb(203, 203, 203);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Dış Beyaz İçerik Kartı */
+    .ortaa {
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        max-width: 900px;
+        margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
+        text-align: left;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    /* Üst Başlık */
+    .sayfa-baslik {
+        color: #2c251e;
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    /* Modern Hızlı Erişim Sekmeleri (Butonlar) */
+    .hizli-erisim-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        padding: 10px 0;
+        margin-bottom: 15px;
+    }
+
+    .hizli-erisim-btn {
+        background-color: #f7f4f0;
+        color: #4a3f35;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid #e6dec3;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        transition: all 0.25s ease;
+    }
+
+    .hizli-erisim-btn:hover {
+        background-color: #614d37;
+        color: #ffffff;
+        border-color: #614d37;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(97, 77, 55, 0.25);
+    }
+
+    /* Bölüm Başlıkları */
+    .ortaa h2 {
+        text-align: left;
+        font-size: 1.3rem;
+        color: #ffffff;
+        background-color: #614d37;
+        padding: 8px 18px;
+        border-radius: 6px;
+        width: fit-content;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+        /* Butonlara tıklandığında başlığın üst sabit menünün altında kalmaması için offset */
+        scroll-margin-top: 130px; 
+    }
+
+    /* Metin Paragrafları */
+    .ortaa p { 
+        text-align: justify;
+        font-size: 1.05rem;
+        color: #333333;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.7;
+        margin-bottom: 10px;
+    }
+
+    /* Motivasyon Kutusu */
+    .motivasyon-kutusu {
+        background-color: #f7f4f0;
+        border-left: 5px solid #614d37;
+        padding: 20px;
+        border-radius: 6px;
+        margin-bottom: 25px;
+        font-style: italic;
+    }
+
+    /* Zikir Kartları */
+    .zikir-kart {
+        background-color: #fcfbfa;
+        border: 1px solid #e6dec3;
+        border-radius: 8px;
+        padding: 18px 22px;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .zikir-baslik {
+        color: #614d37;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .zikir-arapca {
+        color: #264130;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-align: right;
+        margin: 12px 0;
+        font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    }
+
+    /* Mobil Ekran Uyumları */
+    @media (max-width: 768px) {
+        .ortaa {
+            margin-top: 240px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ortaa">
+
+    <h1 class="sayfa-baslik">- Günlük Dualar ve Zikirler -</h1>
+
+    <!-- Hızlı Erişim Sekmeleri (En Baştaki Butonlar) -->
+    <div class="hizli-erisim-container">
+        <a href="#gune-baslarken" class="hizli-erisim-btn">Güne Başlarken</a>
+        <a href="#zihin-acikligi" class="hizli-erisim-btn">Zihin Açıklığı & Başarı</a>
+        <a href="#derin-zikirler" class="hizli-erisim-btn">Derin Zikirler</a>
+        <a href="#kalp-huzuru" class="hizli-erisim-btn">Kalp Huzuru & Tövbe</a>
+    </div>
+
+    <hr style="border: none; border-bottom: 1px solid #eee; margin: 25px 0;">
+
+    <!-- 1. BÖLÜM: GÜNE BAŞLARKEN -->
+    <h2 id="gune-baslarken">1. Güne Başlarken</h2>
+    <p>Her işin başı Allah'ın ismiyle olmalıdır. Güne ferahlık, bereket ve kolaylıkla başlamak için okunacak temel dualar ve zikirler:</p>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Bismillâh Her Hayrın Başıdır</div>
+        <p><strong>Okunuşu:</strong> "Eûzu billahi mineş-şeytânirracîm. Bismillahirrahmanirrahîm."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Kovulmuş Şeytan’ın şerrinden Allah’a sığınırım. Rahman ve Rahim Olan Allah’ın Adıyla."</p>
+    </div>
+
+    <div class="motivasyon-kutusu">
+        <p style="margin:0; font-size: 1.1rem; color: #4a3f35;">
+            <strong>"Şüphesiz güçlükle beraber bir kolaylık vardır."</strong> <em>(İnşirâh Suresi, 5. Ayet)</em><br>
+            <small style="color: #666; font-style: normal;">Güne başlarken zihnini temizlemek ve kalbine ferahlık vermek için günlük zikirlerini aksatma.</small>
+        </p>
+    </div>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">İşlerin Kolaylaşması İçin (Musa A.S. Duası)</div>
+        <div class="zikir-arapca">رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي</div>
+        <p><strong>Okunuşu:</strong> "Rabbişrah lî sadrî ve yessir lî emrî."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Rabbim! Göğsümü genişlet, işimi kolaylaştır."</p>
+    </div>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Güç ve Özgüven Zikri</div>
+        <p><strong>Okunuşu:</strong> "Lâ havle ve lâ kuvvete illâ billâhil 'aliyyil 'azîm."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Güç ve kuvvet ancak yüce ve azamet sahibi olan Allah'ın yardımıyladır."</p>
+    </div>
+
+    <!-- 2. BÖLÜM: ZİHİN AÇIKLIĞI VE BAŞARI DUALARI -->
+    <h2 id="zihin-acikligi">2. Zihin Açıklığı ve Başarı Duaları</h2>
+    <p>Ders çalışırken, odaklanma gerektiren bir işle uğraşırken veya sınav öncesinde okunacak zikirler ve dualar:</p>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Zihin Açıklığı ve İlmi Artırma</div>
+        <p><strong>Okunuşu:</strong> "Rabbi zidnî 'ilmen ve fehmen ve el-hıknî bi's-sâlihîn."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Rabbim! İlmimi ve anlayışımı artır, beni salih kulların arasına kat."</p>
+    </div>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">İşleri Hayırla Tamamlama (Rabbi Yessir)</div>
+        <p><strong>Okunuşu:</strong> "Rabbi yessir velâ tu'assir, Rabbi temmim bi'l-hayr."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Rabbim! İşimi kolaylaştır, zorlaştırma. İşimi hayırla tamamla."</p>
+    </div>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Stres ve Kaygıyı Azaltma Zikri</div>
+        <p><strong>Okunuşu:</strong> "Hasbunallâhu ve ni'mel vekîl."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Allah bize yeter, O ne güzel vekildir."</p>
+    </div>
+
+    <!-- 3. BÖLÜM: DERİN ZİKİRLER VE TESBİHATLAR -->
+    <h2 id="derin-zikirler">3. Derin Zikirler ve Tesbihatlar</h2>
+    <p>Peygamber Efendimizin (s.a.v.) dilinden düşürmediği, mizan tartısında ağır gelen ve ruhun derinliklerine hitap eden özel zikirler:</p>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Dilde Hafif, Tartıda Ağır İki Cümle</div>
+        <div class="zikir-arapca">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ</div>
+        <p><strong>Okunuşu:</strong> "Sübhânallâhi ve bi-hamdihî, Sübhânallâhil-'Azîm."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Allah'ı, O'na hamd ederek tüm noksanlıklardan tenzih ederim. Yüce olan Allah'ı tenzih ederim."</p>
+    </div>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Zorluk, Musibet ve Üzüntü Anında (İstirca)</div>
+        <div class="zikir-arapca">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</div>
+        <p><strong>Okunuşu:</strong> "İnnâ lillâhi ve innâ ileyhi râci'ûn."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Şüphesiz biz Allah’a aitiz ve şüphesiz O’na döneceğiz." <em>(Bakara Suresi, 156. Ayet)</em></p>
+    </div>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Sıkıntı ve Bunalımdan Kurtuluş (Yunus A.S. Duası)</div>
+        <div class="zikir-arapca">لَا إِلٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</div>
+        <p><strong>Okunuşu:</strong> "Lâ ilâhe illâ ente subhâneke innî kuntu mine'z-zâlimîn."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Senden başka hiçbir ilah yoktur. Seni tüm noksanlıklardan tenzih ederim. Şüphesiz ben haksızlık edenlerden oldum."</p>
+    </div>
+
+    <!-- 4. BÖLÜM: KALP HUZURU VE TÖVBE -->
+    <h2 id="kalp-huzuru">4. Kalp Huzuru ve Tövbe</h2>
+    <p>Günün yorgunluğunu ve stresini geride bırakırken ruhu arındıran, kalbe derin bir dinginlik veren zikirler:</p>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Günahların Bağışlanması ve Ruhsal Arınma</div>
+        <p><strong>Okunuşu:</strong> "Astaġfirullâhe'l-'Azîme ve etûbu ileyh."</p>
+        <p style="margin-bottom:0;"><strong>Anlamı:</strong> "Yüce Allah'tan bağışlanma diler ve O'na tövbe ederim."</p>
+    </div>
+
+    <div class="zikir-kart">
+        <div class="zikir-baslik">Kalp Huzuru İçin Günlük Tesbihat Özetleri</div>
+        <p style="margin-bottom:0; line-height: 2;">
+            • <strong>Sübhânallâh:</strong> <em>Allah'ı tüm eksikliklerden tenzih ederim.</em><br>
+            • <strong>Elhamdülillâh:</strong> <em>Şükür ve hamd sadece Allah'a aittir.</em><br>
+            • <strong>Allâhu Ekber:</strong> <em>Allah her şeyden daha büyüktür.</em><br>
+            • <strong>Lâ ilâhe illallâh:</strong> <em>Allah'tan başka sığınılacak güç yoktur.</em><br>
+            • <strong>Lâ havle ve lâ kuvvete illâ billâh:</strong> <em>Güç ve kuvvet ancak Allah'ın yardımıyladır.</em>
+        </p>
+    </div>
+
+</div>
+{% endblock %}

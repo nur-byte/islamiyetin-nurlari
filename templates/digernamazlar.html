@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block title %}Diğer Namazlar - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        background-color: rgb(203, 203, 203);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Ana İçerik Kartı */
+    .ortaa {
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        max-width: 900px;
+        margin: 220px auto 60px auto;
+        text-align: left;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        color: #1c1c1c;
+        text-align: center;
+        font-size: 1.8rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-bottom: 20px;
+    }
+
+    /* Hızlı Erişim Sekmeleri (Menü) */
+    .hizli-erisim-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    .hizli-erisim-btn {
+        background-color: #f7f4f0;
+        color: #4a3f35 !important;
+        padding: 8px 16px;
+        text-decoration: none !important;
+        border-radius: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        font-size: 0.95rem !important;
+        border: 1px solid #ccc;
+        transition: all 0.3s ease;
+    }
+
+    .hizli-erisim-btn:hover {
+        background-color: #614d37;
+        color: #ffffff !important;
+        border-color: #614d37;
+    }
+
+    /* Bölüm Başlıkları (H2 ve H3) */
+    .ortaa h2 {
+        font-size: 1.2rem;
+        color: #ffffff;
+        background-color: #614d37;
+        width: fit-content;
+        padding: 10px 15px;
+        border-radius: 6px;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        scroll-margin-top: 130px; /* Sabit menü offset ayarı */
+    }
+
+    .ortaa h3 {
+        font-size: 1.2rem;
+        color: #2c251e;
+        border-bottom: 2px solid #614d37;
+        padding-bottom: 5px;
+        margin-top: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        scroll-margin-top: 130px;
+    }
+
+    p {
+        margin-left: 5px;
+        text-align: justify;
+        font-size: 1rem;
+        line-height: 1.6;
+        letter-spacing: 0.5px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #2c2c2c;
+    }
+
+    /* Adım Kutuları ve İpuçları */
+    .adim-kutusu {
+        background-color: #fbfbfb;
+        border-left: 4px solid #614d37;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .bilgi-kutusu {
+        background-color: #eef7ff;
+        border-left: 4px solid #016e58;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+        font-size: 1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    /* Liste Düzeni */
+    .ortaa ul, .ortaa ol {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        padding-left: 25px;
+    }
+
+    .ortaa li {
+        margin-bottom: 8px;
+    }
+
+    /* Responsive Uyum */
+    @media (max-width: 768px) {
+        .ortaa {
+            width: 92%;
+            padding: 15px;
+            margin-top: 230px;
+        }
+        h1 { font-size: 22px; }
+        p, .ortaa ul, .ortaa ol { font-size: 16px; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ortaa">
+    
+    <h1>- Diğer ve Nafile Namazların Kılınışı -</h1>
+
+    <!-- Hızlı Erişim Butonları -->
+    <div class="hizli-erisim-container">
+        <a href="#cuma-namazi" class="hizli-erisim-btn">Cuma Namazı</a>
+        <a href="#bayram-namazi" class="hizli-erisim-btn">Bayram Namazı</a>
+        <a href="#teravih-namazi" class="hizli-erisim-btn">Teravih</a>
+        <a href="#teheccud-namazi" class="hizli-erisim-btn">Teheccüd</a>
+        <a href="#duha-namazi" class="hizli-erisim-btn">Kuşluk (Duha)</a>
+        <a href="#tesbih-namazi" class="hizli-erisim-btn">Tesbih Namazı</a>
+        <a href="#hacet-namazi" class="hizli-erisim-btn">Hacet & İstihare</a>
+    </div>
+
+    <hr style="border: none; border-bottom: 1px solid #ddd; margin: 20px 0;">
+
+    <div class="bilgi-kutusu">
+        <strong>Nafile Namazlar Hakkında Bilgi:</strong><br>
+        Farz ve vacip namazların dışında, Peygamber Efendimiz’in (s.a.v.) kıldığı veya kılınmasını tavsiye ettiği sevabı büyük namazlardır. Nafile namazlar genel olarak 2'şer rekat halinde kılınır ve 2. rekatın sonunda selam verilmesi afdal kabul edilir.
+    </div>
+
+    <!-- 1. CUMA NAMAZI -->
+    <h2 id="cuma-namazi">1. Cuma Namazı (10 Rekat)</h2>
+    <p>Cuma namazı, Cuma günü öğle vakti cemaatle kılınan farz bir namazdır.</p>
+    <div class="adim-kutusu">
+        <p><strong>• İlk Sünnet (4 Rekat):</strong> Öğle namazının 4 rekat sünneti gibi kılınır.</p>
+        <p><strong>• Farz (2 Rekat):</strong> İmam ile birlikte cemaatle kılınır. Niyet edildikten sonra imama uyulur. Fatiha ve sureleri imam sesli okur, cemaat dinler.</p>
+        <p><strong>• Son Sünnet (4 Rekat):</strong> Cuma farzı bittikten sonra tek başına öğle sünneti gibi 4 rekat olarak kılınır.</p>
+    </div>
+
+    <!-- 2. BAYRAM NAMAZI -->
+    <h2 id="bayram-namazi">2. Bayram Namazı (2 Rekat)</h2>
+    <p>Ramazan ve Kurban Bayramı sabahı kılınan 2 rekatlık vacip bir namazdır. Diğer namazlardan farkı, içinde fazladan alınan <strong>ilave (zâid) tekbirler</strong> bulunmasıdır.</p>
+    <div class="adim-kutusu">
+        <p><strong>1. Rekat:</strong> Niyet edilir ("Niyet ettim Allah rızası için Bayram namazını kılmaya, uydum imama"). İftitah tekbirinden sonra Sübhâneke okunur. Ardından imamla birlikte eller kulaklara kaldırılarak <strong>3 defa ilave tekbir</strong> alınır (Her tekbirde eller yana salınır, 3. tekbirden sonra eller bağlanır). İmam Açıktan Fatiha ve Sure okur, rükû ve secdeler yapılır.</p>
+        <p><strong>2. Rekat:</strong> İmam Fatiha ve Sureyi okur. Rükûya gitmeden önce yine eller kaldırılarak <strong>3 defa ilave tekbir</strong> alınır. 4. tekbirde rükûya yatılır. Secdeler ve oturuş tamamlanarak selam verilir.</p>
+    </div>
+
+    <!-- 3. TERAVİH NAMAZI -->
+    <h2 id="teravih-namazi">3. Teravih Namazı (20 Rekat)</h2>
+    <p>Ramazan ayına özel, yatsı namazından sonra kılınan sünnet-i müekkede bir namazdır.</p>
+    <div class="adim-kutusu">
+        <p>Genellikle 2 veya 4 rekatta bir selam verilerek toplam 20 rekat tamamlanır.</p>
+        <p><strong>4 Rekat Olarak Kılınırsa:</strong> İkindi namazının sünneti gibi kılınır. Yani 2. rekatın oturuşunda Ettehiyyâtü'den sonra Salli-Bârik duaları okunur, 3. rekata kalkıldığında Sübhâneke ile başlanır.</p>
+    </div>
+
+    <!-- 4. TEHECCÜD NAMAZI -->
+    <h2 id="teheccud-namazi">4. Teheccüd (Gece) Namazı</h2>
+    <p>Gece uykudan uyanılarak kılınan çok faziletli bir nafile namazdır. En az 2, en fazla 8 rekat kılınması tavsiye edilir.</p>
+    <div class="adim-kutusu">
+        <p>İkişer rekat olarak kılınması daha faziletlidir. Aynen sabah namazının 2 rekat sünneti gibi kılınır. Niyette "Niyet ettim Allah rızası için Teheccüd namazını kılmaya" denir.</p>
+    </div>
+
+    <!-- 5. KUŞLUK NAMAZI -->
+    <h2 id="duha-namazi">5. Kuşluk (Duha) Namazı</h2>
+    <p>Güneş bir miktar yükseldikten (işrak vaktinden) sonra öğle vaktine kadar kılınabilen bir nafile namazdır. 2, 4, 8 veya 12 rekat kılınabilir.</p>
+    <div class="adim-kutusu">
+        <p>2'şer rekatlar halinde kılınması tavsiye edilir. Tıpkı sabah namazının sünneti gibi kılınmaktadır.</p>
+    </div>
+
+    <!-- 6. TESBİH NAMAZI -->
+    <h2 id="tesbih-namazi">6. Tesbih Namazı (4 Rekat)</h2>
+    <p>İçinde özel tesbih zikrinin 300 defa tekrarlandığı, ömürde en az bir kez kılınması tavsiye edilen mendup bir namazdır.</p>
+    <div class="bilgi-kutusu">
+        <strong>Okunan Tesbih Zikri:</strong><br>
+        <em>"Subhânallâhi vel-hamdu lillâhi ve lâ ilâhe illallâhu vallâhu ekber"</em>
+    </div>
+    <div class="adim-kutusu">
+        <p><strong>Her Rekatta 75 Defa Okunuş Sırası:</strong></p>
+        <ul>
+            <li>Sübhâneke'den sonra: <strong>15 defa</strong></li>
+            <li>Fatiha ve Zammı Sureden sonra: <strong>10 defa</strong></li>
+            <li>Rükûda (rükû zikran sonra): <strong>10 defa</strong></li>
+            <li>Rükûdan doğrulunca (ayakta): <strong>10 defa</strong></li>
+            <li>Birinci Secdede (secde zikran sonra): <strong>10 defa</strong></li>
+            <li>İki secde arası oturuşta: <strong>10 defa</strong></li>
+            <li>İkinci Secdede (secde zikran sonra): <strong>10 defa</strong></li>
+        </ul>
+        <p>Böylece 1 rekatta 75, toplam 4 rekatta 300 defa tesbih duası okunmuş olur.</p>
+    </div>
+
+    <!-- 7. HACET VE İSTİHARE -->
+    <h2 id="hacet-namazi">7. Hacet ve İstihare Namazları</h2>
+    <p><strong>• Hacet Namazı:</strong> Bir dileği, ihtiyacı veya dünyevi/uhrevi bir isteği olan kişinin 2 veya 4 rekat kıldığı namazdır. Namazdan sonra Hacet Duası okunur.</p>
+    <p><strong>• İstihare Namazı:</strong> Bir işin hakkında hayırlı olup olmadığını anlamak amacıyla yatmadan önce kılınan 2 rekatlık namazdır. Namaz bitiminde İstihare duası okunup kıbleye dönük yatılır.</p>
+
+</div>
+{% endblock %}

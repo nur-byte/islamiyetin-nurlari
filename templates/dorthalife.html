@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}Dört Halife Dönemi - İslamiyetin Nurları{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Dış Beyaz İçerik Kartı */
+    .halifeler {
+         position: relative;
+    height: auto;
+    min-height: 590px;
+    width: 80%;
+    max-width: 900px;
+    margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
+    text-align: left;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    }
+
+    /* Üst Başlık */
+    .sayfa-baslik {
+        color: #2c251e;
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    /* Modern Halife Sekmeleri (Hızlı Menü) */
+    .sure-linkleri-kapsayici {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        padding: 10px 0;
+        margin-bottom: 15px;
+    }
+
+    .sure-linkleri-kapsayici a {
+        background-color: #f7f4f0;
+        color: #4a3f35;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid #e6dec3;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        transition: all 0.25s ease;
+    }
+
+    .sure-linkleri-kapsayici a:hover {
+        background-color: #614d37;
+        color: #ffffff;
+        border-color: #614d37;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(97, 77, 55, 0.25);
+    }
+
+    /* Halife İsim Başlıkları */
+    .halifeler h2 {
+        text-align: left;
+        font-size: 1.3rem;
+        color: #ffffff;
+        background-color: #614d37;
+        padding: 8px 18px;
+        border-radius: 6px;
+        width: fit-content;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+        /* Butonlara tıklandığında başlığın üst sabit menünün altında kalmaması için offset */
+        scroll-margin-top: 130px; 
+    }
+
+    /* Metin Paragrafları */
+    .halifeler p {
+        text-align: justify;
+        font-size: 1.05rem;
+        color: #333333;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.7;
+        margin-bottom: 10px;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Ekran küçüldüğünde üst menü hizasını koruması için */
+    @media (max-width: 768px) {
+        .halifeler {
+            margin-top: 240px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="halifeler">
+    
+    <h1 class="sayfa-baslik">- Dört Halife Dönemi -</h1>
+
+    <!-- Hızlı Erişim Sekmeleri -->
+    <div class="sure-hizli-menu">
+        <div class="sure-linkleri-kapsayici">
+            <a href="#ebubekir">Hz. Ebubekir</a>
+            <a href="#omer">Hz. Ömer</a>
+            <a href="#osman">Hz. Osman</a>
+            <a href="#ali">Hz. Ali</a>
+        </div>
+    </div>
+
+    <hr style="border: none; border-bottom: 1px solid #eee; margin: 25px 0;">
+
+    <!-- İçerikler -->
+    <h2 id="ebubekir">Hz. Ebubekir (632-634)</h2>
+    <p>Mekke'nin köklü kabilelerinden Teymoğulları'na mensuptur. Peygamber Efendimizden (s.a.v.) yaklaşık iki yıl sonra dünyaya gelmiştir. İslamiyet öncesinde de Mekke'de dürüstlüğü, güzel ahlakı ve adaletli hakemliği ile tanınan, herkesin saygı duyduğu zengin bir kumaş tüccarıydı. Hz. Muhammed'e (s.a.v.) peygamberlik görevi verildiğinde, arkasına bakmadan ve hiçbir şüphe duymadan iman eden ilk yetişkin erkek olmuştur.
+    <br><br>
+    Efendimizin Miraç mucizesini Mekkelilere anlattığında, müşrikler Hz. Ebubekir'e gelip "Bak arkadaşın ne anlatıyor" dediklerinde, "O söylüyorsa kesinlikle doğrudur" diyerek "As-Sıddîk" (En Doğru) unvanını bizzat Peygamberimizden almıştır. Mekke'den Medine'ye hicret ederken Sevr Mağarası'nda Peygamberimizin yanında olan, canını onun için tehlikeye atan tek dostudur. Kur'an-ı Kerim'de Tevbe Suresi 40. ayette geçen "Mağaradaki iki kişiden biri" ifadesinin (Yâr-ı Gâr) muhatabıdır.
+    <br><br>
+    Peygamber Efendimizin (s.a.v.) vefatının ardından Müslümanların ittifakıyla ilk halife seçilmiştir. Sadece 2 yıl gibi kısa bir süre halifelik yapmış olmasına rağmen, İslam devletinin yıkılmasını önleyen çok kritik adımlar atmıştır. Efendimizin vefatıyla sarsılan bazı Arap kabilelerinin dinden dönme ve zekat vermeyi reddetme isyanlarını (Riddet Olayları) bastırmış, ortaya çıkan yalancı peygamberleri ortadan kaldırarak İslam birliğini korumuştur.
+    <br><br>
+    Yalancı peygamberlerle yapılan Yamame Savaşı'nda bir çok hafız sahabenin şehit düşmesi üzerine, Hz. Ömer'in de tavsiyesiyle Kur'an ayetlerinin kaybolmasını önlemek için bir komisyon kurdurmuştur. Zeyd bin Sabit başkanlığındaki bu komisyon, dağınık haldeki tüm ayetleri bir araya getirerek Kur'an-ı Kerim'i ilk kez tek bir kitap (Mushaf) haline getirmiştir. 634 yılında hastalanarak vefat etmiş ve vasiyeti üzerine Peygamber Efendimizin (s.a.v.) hemen yanına defnedilmiştir.</p>
+
+    <h2 id="omer">Hz. Ömer (634-644)</h2>
+    <p>Mekke'nin asil kabilelerinden Adiyyoğulları'na mensuptur. İslamiyet'ten önce Mekke'nin elçilik görevini yürüten, heybeti, cesareti ve ticari dehasıyla bilinen bir liderdi. Başlangıçta İslam'ın en büyük düşmanlarından biriyken, kız kardeşinin evinde dinlediği Tâhâ Suresi ayetlerinden derinden etkilenerek Müslüman olmuştur. Onun Müslüman olmasıyla Müslümanlar ilk kez Kabe'de açıkça namaz kılmaya başlamıştır. Hak ile batılı birbirinden ayıran keskin adaleti nedeniyle bizzat Peygamberimiz tarafından kendisine "el-Fârûk" unvanı verilmiştir.
+    <br><br>
+    Hz. Ebubekir'in vefatının ardından ikinci halife olarak göreve başlamıştır. Onun 10 yıllık dönemi, İslam devletinin bir imparatorluğa dönüştüğü, sınırların en çok genişlediği altın çağdır. Bizans ve Sasaniler ile yapılan Kadisiye, Celula ve Nihavend gibi büyük savaşlar sonucunda İran, Irak, Suriye, Filistin ve Mısır fethedilmiştir. Kudüs'ü savaşmadan, bizzat şehre giderek teslim almış ve oradaki gayrimüslim halka tam bir inanç özgürlüğü tanıyan tarihi bir ahitname imzalamıştır.
+    <br><br>
+    Sınırlar çok hızlı genişlediği için devleti kurumsallaştırmıştır. Ülkeyi illere (vilayetlere) ayırarak valiler ve bağımsız kadılar (hakimler) atamış, adalet mekanizmasını kurmuştur. İslam tarihinin ilk düzenli ordusunu (Ordugâh şehirlerini), Beytülmal adı verilen devlet hazinesini, posta teşkilatını ve askeri ikta sistemini kuran kişidir. "Adalet mülkün temelidir" sözü Hz.Ömer'e aittir.
+    <br><br>
+    Peygamber Efendimizin (s.a.v.) Mekke'den Medine'ye göç ettiği tarihi esas alan "Hicri Takvim" onun döneminde resmiyete dökülmüş ve ilk kez İslam parası bastırılmıştır. Devlet yönetiminde kul hakkına ve sadeliğe o kadar önem vermiştir ki, geceleri tebdil-i kıyafetle Medine sokaklarında tebaasının dertlerini yerinde incelemiştir. 644 yılında, fethettiği topraklardan getirilen Ebu Lü'lüe adlı gayrimüslim bir köle tarafından sabah namazı kıldırırken hançerlenerek şehit edilmiş ve Efendimizin yanına defnedilmiştir.</p>
+
+    <h2 id="osman">Hz. Osman (644-656)</h2>
+    <p>Mekke'nin en güçlü kabilelerinden Ümeyyeoğulları'na (Emeviler) mensuptur. Çok zengin bir tüccar olmasına rağmen sonsuz nezaketi, edebi, iffeti ve yüksek hayâ duygusuyla tanınırdı. Meleklerin bile kendisinden hayâ ettiği bu yüce sahabe, Peygamber Efendimizin önce kızı Rukiye ile, onun vefatından sonra ise diğer kızı Ümmü Gülsüm ile evlenerek "Zün-Nûreyn" (İki Nur Sahibi) unvanını almıştır. İslam'ın ilk yıllarında yapılan savaşlarda ve kıtlık dönemlerinde malının tamamına yakınını İslam ordusunun (özellikle Tebük Seferi'nde) lojistiği için bağışlamıştır.
+    <br><br>
+    Hz. Ömer'in şehit edilmesinden sonra kurulan şura tarafından üçüncü halife seçilmiştir. 12 yıl ile en uzun süre tahtta kalan halifedir. Onun döneminde fetihler Doğu Bloğunda Horasan ve Kafkasya'ya, Batı Bloğunda ise Kuzey Afrika'ya kadar uzanmıştır. İslam tarihinin ilk donanması (Deniz Ordusu) Şam Valisi Muaviye tarafından onun emriyle kurulmuş ve Kıbrıs adası fethedilmiştir.
+    <br><br>
+    En büyük hizmeti, İslam coğrafyasının çok büyümesi ve farklı şivelerin ortaya çıkması nedeniyle Kur'an-ı Kerim'in okunuşunda yaşanabilecek ihtilafları önlemek olmuştur. Hz. Ebubekir döneminde kitap haline getirilen tek nüshayı esas alarak, Kureyş lehçesiyle Kur'an-ı Kerim'i yeniden çoğaltmıştır. Çoğaltılan bu Mushaflar Kûfe, Basra, Şam ve Mısır gibi büyük İslam merkezlerine gönderilmiş, böylece Kur'an'ın orijinal hali kıyamete kadar güvence altına alınmıştır.
+    <br><br>
+    Halifeliğinin son yıllarında, devlet kademelerine kendi akrabalarını getirdiği iddiaları ve fethedilen bölgelerdeki bazı grupların kışkırtmasıyla İslam tarihindeki ilk büyük iç karışıklıklar baş göstermiştir. Medine'ye gelen isyancılar halifenin evini kuşatmıştır. Müslümanların kanının dökülmesini kesinlikle istemediği için ashabın kendisini koruma tekliflerini reddetmiş ve evinde Kur'an-ı Kerim okurken isyancılar tarafından şehit edilmiştir.</p>
+
+    <h2 id="ali">Hz. Ali (656-661)</h2>
+    <p>Peygamber Efendimizin amcası Ebu Talib'in oğludur. Efendimizin himayesinde büyümüş ve çocuk yaşta İslamiyet'i kabul eden ilk kişi olmuştur. Peygamberimizin kızı Hz. Fatıma ile evlenerek onun soyunu devam ettiren yegane damadı olmuştur. Uhud, Hendek ve özellikle Hayber Kalesi'nin fethindeki kırılmaz cesareti nedeniyle "Esedullah" (Allah'ın Aslanı) ve "Şah-ı Merdan" unvanlarını almıştır. Peygamberimiz onun için, "Ben ilmin şehriyim, Ali ise onun kapısıdır" buyurmuştur.
+    <br><br>
+    Hz. Osman'ın trajik şehadetinin ardından, Medine'de oldukça karışık bir siyasi atmosferde dördüncü halife olarak seçilmiştir. Onun 5 yıllık halifelik dönemi, maalesef fetihlerin durduğu, Hz. Osman'ın katillerinin bulunması hususundaki içtihat farkları nedeniyle Müslümanların kendi içindeki iç savaşlarla ve siyasi çalkantılarla mücadele ettiği bir dönem olmuştur.
+    <br><br>
+    Hz. Aişe, Talha ve Zübeyr gibi sahabelerin ordusuyla karşı karşıya geldiği Cemel Vakası (Deve Olayı) ve ardından Şam Valisi Muaviye ile yapılan Sıffîn Savaşı bu dönemin en acı hadiseleridir. Sıffîn Savaşı'nın neticelenmesi için başvurulan Hakem Olayı'ndan sonra İslam dünyası; Hz. Ali taraftarları, Muaviye taraftarları ve her iki lideri de reddeden Hariciler olmak üzere üç siyasi gruba ayrılmıştır.
+    <br><br>
+    Hz. Ali, tüm bu siyasi kargaşanın ortasında bile adaletten, fıkhi derinlikten, beytülmalin titizlikle bölüştürülmesinden ve İslam hukukunun asıl çizgilerinden asla taviz vermemiştir. Devlet merkezini daha güvenli gördüğü Kûfe şehrine taşımıştır. 661 yılında, Haricilerden olan Abdurrahman bin Mülcem adındaki bir suikastçı tarafından Kûfe'de sabah namazına giderken zehirli bir kılıçla vurularak şehit edilmiş ve böylece İslam tarihindeki "Hulefâ-yi Râşidîn" (Dört Doğru Halife) dönemi sona ermiştir.</p>
+
+</div>
+{% endblock %}

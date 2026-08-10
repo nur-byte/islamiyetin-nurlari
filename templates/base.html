@@ -96,7 +96,7 @@
             align-items: center;
         }
 
-        .baslik-btn {
+  .baslik-btn {
             border-radius: 8px;
             text-decoration: none;
             color: #1c1a1a;
@@ -107,6 +107,12 @@
             cursor: pointer;
             border: 1px solid #635151;
             transition: all 0.2s ease;
+            
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: normal;
         }
 
         .baslik-btn:hover {
@@ -322,7 +328,7 @@
         </a>
         <div class="baslik-container">
             <div class="baslik-item">
-            <a href="{{ url_for('dorthaife') }}" class="baslik-btn">Halifeler</a>              
+                <button type="button" class="baslik-btn">Halifeler</button>              
                 <div class="baslik-dropdown">
                     <a href="/dorthalife#ebubekir">Hz. Ebubekir</a>
                     <a href="/dorthalife#omer">Hz. Ömer</a>
@@ -332,14 +338,14 @@
             </div>
 
             <div class="baslik-item">
-                <a href="{{ url_for('peygamber') }}" class="baslik-btn">Peygamber Hayatı</a>
+                <button type="button" class="baslik-btn">Peygamber Hayatı</button>
                 <div class="baslik-dropdown">
                     <a href="/peygamber">Hz. Muhammed (s.a.v.)</a>
                 </div>
             </div>
 
             <div class="baslik-item">
-                <a href="{{ url_for('namazkılınısları') }}" class="baslik-btn">Namaz</a>
+                <button type="button" class="baslik-btn">Namaz</button>
                 <div class="baslik-dropdown">
                     <a href="/namazkılınısları">Namaz</a>
                     <a href="/namazdualari">Namaz Sureleri</a>
@@ -350,27 +356,29 @@
             </div>
 
             <div class="baslik-item">
-                <a href="{{ url_for('aciklama') }}" class="baslik-btn">Hicri Takvim</a>
+                <button type="button" class="baslik-btn">Hicri Takvim</button>
                 <div class="baslik-dropdown">
                     <a href="/aciklama">Hicri Takvimde Bugün</a>
                 </div>
             </div>
 
             <div class="baslik-item">
-                <a href="{{ url_for('home') }}" class="baslik-btn">İslam</a>
+                <button type="button" class="baslik-btn">İslam</button>
                 <div class="baslik-dropdown">
                     <a href="/">İslam Nedir?</a>
                     <a href="/islamınsartlari">İslam'ın Şartları</a>
                     <a href="/dualar">Dualar ve Zikirler</a>
                     <a href="/hadisler">Hadisler</a>
-                </div></div>
+                </div>
+            </div>
 
             <!-- Hızlı Menü Butonu -->
             <button class="toggle-menu-btn" id="openMenuBtn">
                 <span>☰</span> Menü
             </button>
         </div>
-    </div>
+        </div>
+    
 
     <!-- SİYAH KARARTMA GÖLGESİ -->
     <div class="overlay" id="menuOverlay"></div>

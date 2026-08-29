@@ -41,11 +41,10 @@
             width: 100%;
             justify-content: space-between;
             align-items: center;
-            padding:70px 40px;
+            padding: 20px 40px;
             transition: all 0.3s ease;
         }
 
-        /* LOGO LİNK STİLİ */
         .logo-link {
             text-decoration: none;
             color: inherit;
@@ -62,19 +61,11 @@
             text-shadow: 4px 4px 6px rgba(141, 137, 137, 0.3);
             transition: all 0.3s ease;
         }
+
         .ustbaslik h1:hover {
             color: #2f6b3e;
         }
 
-        .baslik-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            transition: all 0.3s ease;
-        }
-
-        /* AŞAĞI KAYDIRINCA KÜÇÜLEN MENÜ */
         .ustbaslik.kucuk {
             padding: 10px 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -84,81 +75,14 @@
             font-size: 1.3rem;
         }
 
-        .ustbaslik.kucuk .baslik-btn, 
-        .ustbaslik.kucuk .toggle-menu-btn {
-            font-size: 0.85rem;
-            padding: 6px 10px;
-        }
-
-        .baslik-item {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-        }
-
-  .baslik-btn {
-            border-radius: 8px;
-            text-decoration: none;
-            color: #1c1a1a;
-            font-size: 0.95rem;
-            padding: 8px 14px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            background-color: #fff6e2;
-            cursor: pointer;
-            border: 1px solid #635151;
-            transition: all 0.2s ease;
-            
-            outline: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            line-height: normal;
-        }
-
-        .baslik-btn:hover {
-            transform: translateY(-2px);
-            background-color: #f7e6c4;
-        }
-
-        .baslik-dropdown {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            display: none;
-            position: absolute;
-            background-color: #ffffff;
-            border-radius: 10px;
-            left: 0;
-            top: 100%;
-            min-width: 160px;
-            padding: 8px 0;
-            z-index: 2000;
-        }
-
-        .baslik-dropdown.show, .baslik-item:hover .baslik-dropdown {
-            display: block;
-        }
-
-        .baslik-dropdown a {
-            display: block;
-            padding: 8px 16px;
-            color: #333;
-            text-decoration: none;
-            font-size: 14px;
-            transition: background-color 0.2s ease;
-        }
-
-        .baslik-dropdown a:hover {
-            background-color: #f0f0f0;
-            color: #016e58;
-        }
-
-        /* SAĞ MENÜ AÇMA BUTONU */
+        /* MENÜ BUTONU */
         .toggle-menu-btn {
             background-color: #016e58;
             color: #ffffff;
             border: 1px solid #4a3f35;
             border-radius: 8px;
-            padding: 8px 14px;
-            font-size: 0.95rem;
+            padding: 8px 16px;
+            font-size: 1rem;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             cursor: pointer;
             display: flex;
@@ -172,7 +96,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- YANDAN KAYAN ÇEKMECE MENÜ (OFF-CANVAS) --- */
+        /* --- YANDAN KAYAN ÇEKMECE MENÜ --- */
         .overlay {
             position: fixed;
             top: 0;
@@ -194,8 +118,8 @@
         .side-drawer {
             position: fixed;
             top: 0;
-            right: -280px;
-            width: 280px;
+            right: -300px;
+            width: 300px;
             height: 100%;
             background-color: rgb(227, 218, 210);
             border-left: 3px solid #614d37;
@@ -237,31 +161,74 @@
         .drawer-menu {
             display: flex;
             flex-direction: column;
-            padding: 15px 0;
+            padding: 10px 0;
             overflow-y: auto;
+            max-height: calc(100vh - 75px);
         }
 
-        .drawer-menu a {
-            display: block;
+        .drawer-menu a, .submenu-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
             color: #333333;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             padding: 12px 25px;
             text-decoration: none;
             font-size: 1rem;
+            border: none;
+            background: none;
+            text-align: left;
             border-bottom: 1px solid rgba(97, 77, 55, 0.15);
             transition: all 0.2s ease;
+            cursor: pointer;
         }
 
-        .drawer-menu a:hover {
+        .drawer-menu a:hover, .submenu-btn:hover {
             background-color: #614d37;
             color: #ffffff;
-            padding-left: 32px;
+            padding-left: 30px;
+        }
+
+        /* DÖRT HALİFE ALT MENÜ STİLİ */
+        .submenu-container {
+            display: none;
+            background-color: #fff6e2;
+            border-bottom: 1px solid #614d37;
+        }
+
+        .submenu-container.open {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .submenu-container a {
+            padding-left: 45px;
+            font-size: 0.95rem;
+            background-color: rgba(97, 77, 55, 0.05);
+            border-bottom: 1px dashed rgba(97, 77, 55, 0.2);
+        }
+
+        .submenu-container a:hover {
+            background-color: #614d37;
+            color: #ffffff;
+            padding-left: 50px;
+        }
+
+        .arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .submenu-btn.active .arrow {
+            transform: rotate(180deg);
         }
 
         /* --- ORTA İÇERİK ALANI --- */
         .main-content {
             flex: 1 0 auto;
             width: 100%;
+            margin-top: 100px;
         }
 
         /* --- FOOTER --- */
@@ -303,87 +270,23 @@
             font-size: 0.9rem;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-
-        /* MOBİL UYUMLULUK */
-        @media(max-width: 768px) {
-            .ustbaslik {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-            .baslik-container {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-        }
     </style>
     {% block extra_css %}{% endblock %}
 </head>
 <body>
 
-    <!-- ÜST BAŞLIK (NAVBAR) -->
     <div class="ustbaslik" id="navbar">
         <a href="/" class="logo-link">
             <h1>İslamiyetin Nurları</h1>
         </a>
-        <div class="baslik-container">
-            <div class="baslik-item">
-                <button type="button" class="baslik-btn">Halifeler</button>              
-                <div class="baslik-dropdown">
-                    <a href="/dorthalife#ebubekir">Hz. Ebubekir</a>
-                    <a href="/dorthalife#omer">Hz. Ömer</a>
-                    <a href="/dorthalife#osman">Hz. Osman</a>
-                    <a href="/dorthalife#ali">Hz. Ali</a>
-                </div>
-            </div>
+        
+        <button class="toggle-menu-btn" id="openMenuBtn">
+            <span>☰</span> Menü
+        </button>
+    </div>
 
-            <div class="baslik-item">
-                <button type="button" class="baslik-btn">Peygamber Hayatı</button>
-                <div class="baslik-dropdown">
-                    <a href="/peygamber">Hz. Muhammed (s.a.v.)</a>
-                </div>
-            </div>
-
-            <div class="baslik-item">
-                <button type="button" class="baslik-btn">Namaz</button>
-                <div class="baslik-dropdown">
-                    <a href="/namazkılınısları">Namaz</a>
-                    <a href="/namazdualari">Namaz Sureleri</a>
-                    <a href="/namazvakitleri">Namaz Vakitleri</a>
-                    <a href="/digernamazlar">Diğer Namazlar</a>
-                    <a href="/vakitnamazlar">Namaz Kılınışları</a>
-                </div>
-            </div>
-
-            <div class="baslik-item">
-                <button type="button" class="baslik-btn">Hicri Takvim</button>
-                <div class="baslik-dropdown">
-                    <a href="/aciklama">Hicri Takvimde Bugün</a>
-                </div>
-            </div>
-
-            <div class="baslik-item">
-                <button type="button" class="baslik-btn">İslam</button>
-                <div class="baslik-dropdown">
-                    <a href="/">İslam Nedir?</a>
-                    <a href="/islamınsartlari">İslam'ın Şartları</a>
-                    <a href="/dualar">Dualar ve Zikirler</a>
-                    <a href="/hadisler">Hadisler</a>
-                </div>
-            </div>
-
-            <!-- Hızlı Menü Butonu -->
-            <button class="toggle-menu-btn" id="openMenuBtn">
-                <span>☰</span> Menü
-            </button>
-        </div>
-        </div>
-    
-
-    <!-- SİYAH KARARTMA GÖLGESİ -->
     <div class="overlay" id="menuOverlay"></div>
 
-    <!-- YANDAN KAYAN ÇEKMECE MENÜ -->
     <div class="side-drawer" id="sideDrawer">
         <div class="drawer-header">
             <h2>Hızlı Menü</h2>
@@ -391,31 +294,38 @@
         </div>
         <div class="drawer-menu">
             <a href="/">Anasayfa</a>
-            <a href="/hadisler">Hadisler</a>
-            <a href="/aciklama">Hicri Aylar</a> 
-            <a href="/dorthalife">Dört Halife</a>
-            <a href="/savas">Gazve ve Seriyyeler</a>
-            <a href="/namazkılınısları">Namaz kılınışları</a>
-            <a href="/namazvakitleri">Namaz vakitleri</a>
-            <a href="/namazdualari">Namaz sureleri</a>
-            <a href="/digernamazlar">Diğer Namazlar</a>            
-            <a href="/vakitnamazlar">Namaz</a>
+            
+            <button class="submenu-btn" id="halifeBtn">
+                Dört Halife <span class="arrow">▼</span>
+            </button>
+            <div class="submenu-container" id="halifeSubmenu">
+                <a href="/dorthalife#ebubekir">Hz. Ebubekir</a>
+                <a href="/dorthalife#omer">Hz. Ömer</a>
+                <a href="/dorthalife#osman">Hz. Osman</a>
+                <a href="/dorthalife#ali">Hz. Ali</a>
+            </div>
+
             <a href="/peygamber">Peygamber Efendimizin Hayatı</a>
+            <a href="/namazkılınısları">Namaz Kılınışları</a>
+            <a href="/namazdualari">Namaz Sureleri</a>
+            <a href="/namazvakitleri">Namaz Vakitleri</a>
+            <a href="/vakitnamazlar">5 Vakit Namaz</a>
+            <a href="/digernamazlar">Diğer Namazlar</a>
+            <a href="/aciklama">Hicri Takvimde Bugün</a>
             <a href="/islamınsartlari">İslam'ın Şartları</a>
-            <a href="/islam">İslam</a>
+            <a href="/hadisler">Hadisler</a>
+            <a href="/savas">Gazve ve Seriyyeler</a>
             <a href="/dualar">Dualar ve Zikirler</a>
             <a href="/about">Hakkında</a>
             <a href="/iletisim">İletişim</a>
         </div>
     </div>
 
-    <!-- SAYFA İÇERİĞİ -->
     <main class="main-content">
         {% block content %}
         {% endblock %}
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-links">
             <a href="/hadisler">Hadisler</a>
@@ -429,7 +339,7 @@
     </footer>
 
     <script>
-        // Navbar küçültme
+        // Sayfa kaydırılınca navbar küçültme
         window.onscroll = function() {
             const navbar = document.getElementById("navbar");
             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -439,25 +349,6 @@
             }
         };
 
-        // Üst Navbar Dropdown Mantığı
-        document.querySelectorAll('.baslik-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const dropdown = this.nextElementSibling;
-                document.querySelectorAll('.baslik-dropdown').forEach(d => {
-                    if (d !== dropdown) d.classList.remove('show');
-                });
-                dropdown.classList.toggle('show');
-            });
-        });
-
-        window.addEventListener('click', () => {
-            document.querySelectorAll('.baslik-dropdown').forEach(d => {
-                d.classList.remove('show');
-            });
-        });
-
-        // Yandan Kayan Menü Mantığı
         const openMenuBtn = document.getElementById('openMenuBtn');
         const closeMenuBtn = document.getElementById('closeMenuBtn');
         const sideDrawer = document.getElementById('sideDrawer');
@@ -476,6 +367,15 @@
         openMenuBtn.addEventListener('click', openDrawer);
         closeMenuBtn.addEventListener('click', closeDrawer);
         menuOverlay.addEventListener('click', closeDrawer);
+
+        // Dört Halife Alt Menü Tıklama İşlemi
+        const halifeBtn = document.getElementById('halifeBtn');
+        const halifeSubmenu = document.getElementById('halifeSubmenu');
+
+        halifeBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            halifeSubmenu.classList.toggle('open');
+        });
     </script>
 </body>
 </html>

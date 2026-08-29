@@ -5,19 +5,19 @@
 {% block extra_css %}
 <style>
     /* Dış Beyaz İçerik Kartı */
-    .halifeler {
-         position: relative;
-    height: auto;
-    min-height: 590px;
-    width: 80%;
-    max-width: 900px;
-    margin: 220px auto 60px auto; /* Üst boşluk 220px yapılarak navbar'ın altından başlatıldı */
-    text-align: left;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-sizing: border-box;
+    .halifeler{
+        position: relative;
+        height: auto;
+        min-height: 590px;
+        width: 80%;
+        max-width: 900px;
+        margin: 30px auto 40px auto; /* Boşluk ideal seviyeye düşürüldü */
+        text-align: left;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-sizing: border-box;
     }
 
     /* Üst Başlık */
@@ -93,10 +93,24 @@
         scroll-behavior: smooth;
     }
 
-    /* Ekran küçüldüğünde üst menü hizasını koruması için */
-    @media (max-width: 768px) {
+   @media (max-width: 768px) {
         .halifeler {
-            margin-top: 240px;
+            width: 92%;
+            padding: 20px 15px;
+            margin: 20px auto 30px auto;
+        }
+
+        .sayfa-baslik {
+            font-size: 1.5rem;
+        }
+
+        .sure-linkleri-kapsayici a {
+            padding: 8px 14px;
+            font-size: 0.85rem;
+        }
+
+        .halifeler h2 {
+            scroll-margin-top: 80px;
         }
     }
 </style>
